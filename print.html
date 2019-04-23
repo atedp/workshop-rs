@@ -1,0 +1,3244 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rust Workshop</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="overview.html">Overview</a></li><li><a href="intro/title.html"><strong aria-hidden="true">1.</strong> Introduction and Cargo</a></li><li><ol class="section"><li><a href="intro/what_is_rust.html"><strong aria-hidden="true">1.1.</strong> What is Rust Exactly?</a></li><li><a href="intro/the_type_system.html"><strong aria-hidden="true">1.2.</strong> The Type System</a></li><li><a href="intro/pillars_of_rust.html"><strong aria-hidden="true">1.3.</strong> Pillars of Rust</a></li><li><a href="intro/short_timeline.html"><strong aria-hidden="true">1.4.</strong> Short Timeline</a></li><li><a href="intro/tools.html"><strong aria-hidden="true">1.5.</strong> Tools</a></li><li><a href="intro/community.html"><strong aria-hidden="true">1.6.</strong> Community</a></li><li><a href="intro/domains.html"><strong aria-hidden="true">1.7.</strong> Domains</a></li><li><a href="intro/wisdom.html"><strong aria-hidden="true">1.8.</strong> Some Wisdom</a></li><li><a href="intro/getting_started.html"><strong aria-hidden="true">1.9.</strong> Getting Started</a></li><li><a href="intro/hello_world.html"><strong aria-hidden="true">1.10.</strong> Hello World</a></li><li><a href="intro/installing_rust.html"><strong aria-hidden="true">1.11.</strong> Installing Rust</a></li><li><a href="intro/rustup_1.html"><strong aria-hidden="true">1.12.</strong> Rustup 1</a></li><li><a href="intro/rustup_2.html"><strong aria-hidden="true">1.13.</strong> Rustup 2</a></li><li><a href="intro/rustup_3.html"><strong aria-hidden="true">1.14.</strong> Rustup 3</a></li><li><a href="intro/cargo.html"><strong aria-hidden="true">1.15.</strong> Cargo</a></li><li><a href="intro/cargo_new.html"><strong aria-hidden="true">1.16.</strong> Cargo New</a></li><li><a href="intro/new_crate.html"><strong aria-hidden="true">1.17.</strong> New Crate</a></li><li><a href="intro/cargo_toml.html"><strong aria-hidden="true">1.18.</strong> Cargo.toml</a></li><li><a href="intro/cargo_build.html"><strong aria-hidden="true">1.19.</strong> Cargo Build</a></li><li><a href="intro/cargo_lock.html"><strong aria-hidden="true">1.20.</strong> Cargo.lock</a></li><li><a href="intro/cargo_run.html"><strong aria-hidden="true">1.21.</strong> Cargo Run</a></li><li><a href="intro/cargo_run_release.html"><strong aria-hidden="true">1.22.</strong> Cargo Run Release</a></li></ol></li><li><a href="common_concepts/title.html"><strong aria-hidden="true">2.</strong> Common Programming Concepts</a></li><li><ol class="section"><li><a href="common_concepts/last_time.html"><strong aria-hidden="true">2.1.</strong> Last Time</a></li><li><a href="common_concepts/quote.html"><strong aria-hidden="true">2.2.</strong> Quote</a></li><li><a href="common_concepts/keywords.html"><strong aria-hidden="true">2.3.</strong> Keywords</a></li><li><a href="common_concepts/identifiers.html"><strong aria-hidden="true">2.4.</strong> Identifiers</a></li><li><a href="common_concepts/variables_1.html"><strong aria-hidden="true">2.5.</strong> Variables 1</a></li><li><a href="common_concepts/variables_2.html"><strong aria-hidden="true">2.6.</strong> Variables 2</a></li><li><a href="common_concepts/variables_3.html"><strong aria-hidden="true">2.7.</strong> Variables 3</a></li><li><a href="common_concepts/variable_shadowing.html"><strong aria-hidden="true">2.8.</strong> Variable Shadowing</a></li><li><a href="common_concepts/variable_and_types.html"><strong aria-hidden="true">2.9.</strong> Variables and Types</a></li><li><a href="common_concepts/data_types/title.html"><strong aria-hidden="true">2.10.</strong> Data Types</a></li><li><ol class="section"><li><a href="common_concepts/data_types/scalars.html"><strong aria-hidden="true">2.10.1.</strong> Scalars</a></li><li><a href="common_concepts/data_types/integer_literals.html"><strong aria-hidden="true">2.10.2.</strong> Integer Literals</a></li><li><a href="common_concepts/data_types/others.html"><strong aria-hidden="true">2.10.3.</strong> Others</a></li></ol></li><li><a href="common_concepts/type_annotations_1.html"><strong aria-hidden="true">2.11.</strong> Type Annotations 1</a></li><li><a href="common_concepts/type_annotations_2.html"><strong aria-hidden="true">2.12.</strong> Type Annotations 2</a></li><li><a href="common_concepts/type_annotations_3.html"><strong aria-hidden="true">2.13.</strong> Type Annotations 3</a></li><li><a href="common_concepts/numeric_casting_1.html"><strong aria-hidden="true">2.14.</strong> Numeric Casting 1</a></li><li><a href="common_concepts/numeric_casting_2.html"><strong aria-hidden="true">2.15.</strong> Numeric Casting 2</a></li><li><a href="common_concepts/clippy_example.html"><strong aria-hidden="true">2.16.</strong> Side Note: Clippy Example</a></li><li><a href="common_concepts/compound_types/title.html"><strong aria-hidden="true">2.17.</strong> Compound Types</a></li><li><ol class="section"><li><a href="common_concepts/compound_types/tuples.html"><strong aria-hidden="true">2.17.1.</strong> Tuples</a></li><li><a href="common_concepts/compound_types/arrays_1.html"><strong aria-hidden="true">2.17.2.</strong> Arrays 1</a></li><li><a href="common_concepts/compound_types/arrays_2.html"><strong aria-hidden="true">2.17.3.</strong> Arrays 2</a></li><li><a href="common_concepts/compound_types/arrays_3.html"><strong aria-hidden="true">2.17.4.</strong> Arrays 3</a></li></ol></li></ol></li><li><a href="ownership/title.html"><strong aria-hidden="true">3.</strong> Ownership</a></li><li><ol class="section"><li><a href="ownership/last_time.html"><strong aria-hidden="true">3.1.</strong> Last Time</a></li><li><a href="ownership/quote.html"><strong aria-hidden="true">3.2.</strong> Quote</a></li></ol></li><li><a href="structs_enums_crates/title.html"><strong aria-hidden="true">4.</strong> Structs, Enums and Crates</a></li><li><ol class="section"><li><a href="structs_enums_crates/last_time.html"><strong aria-hidden="true">4.1.</strong> Last Time</a></li><li><a href="structs_enums_crates/quote.html"><strong aria-hidden="true">4.2.</strong> Quote</a></li></ol></li><li><a href="collections/title.html"><strong aria-hidden="true">5.</strong> Common Collections</a></li><li><ol class="section"><li><a href="collections/last_time.html"><strong aria-hidden="true">5.1.</strong> Last Time</a></li><li><a href="collections/quote.html"><strong aria-hidden="true">5.2.</strong> Quote</a></li><li><a href="collections/the_std_library.html"><strong aria-hidden="true">5.3.</strong> The Standard Library</a></li><li><a href="collections/stdlib_tour.html"><strong aria-hidden="true">5.4.</strong> A Quick Tour</a></li><li><a href="collections/collection_types.html"><strong aria-hidden="true">5.5.</strong> Collection Types</a></li><li><a href="collections/vector/title.html"><strong aria-hidden="true">5.6.</strong> Vectors</a></li><li><ol class="section"><li><a href="collections/vector/basics.html"><strong aria-hidden="true">5.6.1.</strong> Basics</a></li><li><a href="collections/vector/reading_elements_1.html"><strong aria-hidden="true">5.6.2.</strong> Reading Elements 1</a></li><li><a href="collections/vector/reading_elements_2.html"><strong aria-hidden="true">5.6.3.</strong> Reading Elements 2</a></li><li><a href="collections/vector/reading_elements_3.html"><strong aria-hidden="true">5.6.4.</strong> Reading Elements 3</a></li><li><a href="collections/vector/iterating_over_values.html"><strong aria-hidden="true">5.6.5.</strong> Iterating over Values</a></li><li><a href="collections/vector/storing_multiple_types.html"><strong aria-hidden="true">5.6.6.</strong> Storing Multiple Types</a></li></ol></li><li><a href="collections/hash_map/title.html"><strong aria-hidden="true">5.7.</strong> Hash Maps</a></li><li><ol class="section"><li><a href="collections/hash_map/basics_1.html"><strong aria-hidden="true">5.7.1.</strong> Basics 1</a></li><li><a href="collections/hash_map/basics_2.html"><strong aria-hidden="true">5.7.2.</strong> Basics 2</a></li><li><a href="collections/hash_map/ownership.html"><strong aria-hidden="true">5.7.3.</strong> Ownership</a></li><li><a href="collections/hash_map/accessing_values_1.html"><strong aria-hidden="true">5.7.4.</strong> Accessing Values</a></li><li><a href="collections/hash_map/accessing_values_2.html"><strong aria-hidden="true">5.7.5.</strong> Accessing Values</a></li><li><a href="collections/hash_map/updating_values_1.html"><strong aria-hidden="true">5.7.6.</strong> Updating Values</a></li><li><a href="collections/hash_map/updating_values_2.html"><strong aria-hidden="true">5.7.7.</strong> Updating Values</a></li><li><a href="collections/hash_map/updating_values_3.html"><strong aria-hidden="true">5.7.8.</strong> Updating Values</a></li><li><a href="collections/hash_map/hashing_functions.html"><strong aria-hidden="true">5.7.9.</strong> Hashing Functions</a></li></ol></li><li><a href="collections/emoji_fzf_part_4/title.html"><strong aria-hidden="true">5.8.</strong> Emoji-fzf: Part 4</a></li><li><ol class="section"><li><a href="collections/emoji_fzf_part_4/last_time.html"><strong aria-hidden="true">5.8.1.</strong> Last Time</a></li><li><a href="collections/emoji_fzf_part_4/assignment_1.html"><strong aria-hidden="true">5.8.2.</strong> Assignment 1</a></li><li><a href="collections/emoji_fzf_part_4/answer_1.html"><strong aria-hidden="true">5.8.3.</strong> Answer 1</a></li><li><a href="collections/emoji_fzf_part_4/assignment_2.html"><strong aria-hidden="true">5.8.4.</strong> Assignment 2</a></li><li><a href="collections/emoji_fzf_part_4/answer_2.html"><strong aria-hidden="true">5.8.5.</strong> Answer 2</a></li><li><a href="collections/emoji_fzf_part_4/today.html"><strong aria-hidden="true">5.8.6.</strong> Today</a></li><li><a href="collections/emoji_fzf_part_4/preview_subcommand.html"><strong aria-hidden="true">5.8.7.</strong> The Preview Subcommand</a></li><li><a href="collections/emoji_fzf_part_4/serde_intro.html"><strong aria-hidden="true">5.8.8.</strong> Introducing Serde</a></li><li><a href="collections/emoji_fzf_part_4/serde_example.html"><strong aria-hidden="true">5.8.9.</strong> A Serde Example</a></li><li><a href="collections/emoji_fzf_part_4/mapping_emojis_1.html"><strong aria-hidden="true">5.8.10.</strong> Mapping Emojis.json 1</a></li><li><a href="collections/emoji_fzf_part_4/mapping_emojis_2.html"><strong aria-hidden="true">5.8.11.</strong> Mapping Emojis.json 2</a></li><li><a href="collections/emoji_fzf_part_4/new_assignments.html"><strong aria-hidden="true">5.8.12.</strong> Assignments</a></li></ol></li></ol></li><li><a href="errors/title.html"><strong aria-hidden="true">6.</strong> Error Handling</a></li><li><ol class="section"><li><a href="errors/last_time.html"><strong aria-hidden="true">6.1.</strong> Last Time</a></li><li><a href="errors/quote.html"><strong aria-hidden="true">6.2.</strong> Quote</a></li><li><a href="errors/intro.html"><strong aria-hidden="true">6.3.</strong> Introduction</a></li><li><a href="errors/panic.html"><strong aria-hidden="true">6.4.</strong> Panic!</a></li><li><a href="errors/panic_backtrace_1.html"><strong aria-hidden="true">6.5.</strong> Panic Backtrace 1</a></li><li><a href="errors/panic_backtrace_2.html"><strong aria-hidden="true">6.6.</strong> Panic Backtrace 2</a></li><li><a href="errors/result.html"><strong aria-hidden="true">6.7.</strong> Result</a></li><li><a href="errors/using_result.html"><strong aria-hidden="true">6.8.</strong> Using Result</a></li><li><a href="errors/matching_result.html"><strong aria-hidden="true">6.9.</strong> Matching Result</a></li><li><a href="errors/matching_result_errors_1.html"><strong aria-hidden="true">6.10.</strong> Matching Result Errors 1</a></li><li><a href="errors/matching_result_errors_2.html"><strong aria-hidden="true">6.11.</strong> Matching Result Errors 2</a></li><li><a href="errors/unwrap.html"><strong aria-hidden="true">6.12.</strong> Shortcuts for Panic: Unwrap</a></li><li><a href="errors/expect.html"><strong aria-hidden="true">6.13.</strong> Shortcuts for Panic: Expect</a></li><li><a href="errors/propagating_errors_1.html"><strong aria-hidden="true">6.14.</strong> Propagating Errors 1</a></li><li><a href="errors/propagating_errors_2.html"><strong aria-hidden="true">6.15.</strong> Propagating Errors 2</a></li><li><a href="errors/propagating_errors_3.html"><strong aria-hidden="true">6.16.</strong> Propagating Errors 3</a></li><li><a href="errors/question_mark_operator_1.html"><strong aria-hidden="true">6.17.</strong> The ? Operator 1</a></li><li><a href="errors/question_mark_operator_2.html"><strong aria-hidden="true">6.18.</strong> The ? Operator 2</a></li><li><a href="errors/when_to_panic.html"><strong aria-hidden="true">6.19.</strong> To panic! or Not to panic!</a></li><li><a href="errors/emoji_fzf_part_5/title.html"><strong aria-hidden="true">6.20.</strong> Emoji-fzf: Part 5</a></li><li><ol class="section"><li><a href="errors/emoji_fzf_part_5/last_time.html"><strong aria-hidden="true">6.20.1.</strong> Last Time</a></li><li><a href="errors/emoji_fzf_part_5/assignment_1.html"><strong aria-hidden="true">6.20.2.</strong> Assignment 1</a></li><li><a href="errors/emoji_fzf_part_5/answer_1.html"><strong aria-hidden="true">6.20.3.</strong> Answer 1</a></li><li><a href="errors/emoji_fzf_part_5/assignment_2.html"><strong aria-hidden="true">6.20.4.</strong> Assignment 2</a></li><li><a href="errors/emoji_fzf_part_5/answer_2.html"><strong aria-hidden="true">6.20.5.</strong> Answer 2</a></li><li><a href="errors/emoji_fzf_part_5/assignment_3.html"><strong aria-hidden="true">6.20.6.</strong> Assignment 3</a></li><li><a href="errors/emoji_fzf_part_5/answer_3.html"><strong aria-hidden="true">6.20.7.</strong> Answer 3</a></li><li><a href="errors/emoji_fzf_part_5/assignment_4.html"><strong aria-hidden="true">6.20.8.</strong> Assignment 4</a></li><li><a href="errors/emoji_fzf_part_5/answer_4.html"><strong aria-hidden="true">6.20.9.</strong> Answer 4</a></li><li><a href="errors/emoji_fzf_part_5/new_assignments.html"><strong aria-hidden="true">6.20.10.</strong> Assignments</a></li></ol></li></ol></li><li><a href="generics/title.html"><strong aria-hidden="true">7.</strong> Generics</a></li><li><ol class="section"><li><a href="generics/last_time.html"><strong aria-hidden="true">7.1.</strong> Last Time</a></li><li><a href="generics/quote.html"><strong aria-hidden="true">7.2.</strong> Quote</a></li><li><a href="generics/intro.html"><strong aria-hidden="true">7.3.</strong> Introduction</a></li><li><a href="generics/removing_duplication_1.html"><strong aria-hidden="true">7.4.</strong> Removing Duplication 1</a></li><li><a href="generics/removing_duplication_2.html"><strong aria-hidden="true">7.5.</strong> Removing Duplication 2</a></li><li><a href="generics/removing_duplication_3.html"><strong aria-hidden="true">7.6.</strong> Removing Duplication 3</a></li><li><a href="generics/removing_duplication_4.html"><strong aria-hidden="true">7.7.</strong> Removing Duplication 4</a></li><li><a href="generics/structs_1.html"><strong aria-hidden="true">7.8.</strong> Generic Structs 1</a></li><li><a href="generics/structs_2.html"><strong aria-hidden="true">7.9.</strong> Generic Structs 2</a></li><li><a href="generics/structs_3.html"><strong aria-hidden="true">7.10.</strong> Generic Structs 3</a></li><li><a href="generics/enums.html"><strong aria-hidden="true">7.11.</strong> Generic Enums</a></li><li><a href="generics/methods_1.html"><strong aria-hidden="true">7.12.</strong> Generic Methods 1</a></li><li><a href="generics/methods_2.html"><strong aria-hidden="true">7.13.</strong> Generic Methods 2</a></li><li><a href="generics/methods_3.html"><strong aria-hidden="true">7.14.</strong> Generic Methods 3</a></li><li><a href="generics/performance_1.html"><strong aria-hidden="true">7.15.</strong> Performance 1</a></li><li><a href="generics/performance_2.html"><strong aria-hidden="true">7.16.</strong> Performance 2</a></li><li><a href="generics/workshop/title.html"><strong aria-hidden="true">7.17.</strong> Workshop</a></li><li><ol class="section"><li><a href="generics/workshop/question_1.html"><strong aria-hidden="true">7.17.1.</strong> Question 1</a></li><li><a href="generics/workshop/answer_1.html"><strong aria-hidden="true">7.17.2.</strong> Answer 1</a></li><li><a href="generics/workshop/question_2.html"><strong aria-hidden="true">7.17.3.</strong> Question 2</a></li><li><a href="generics/workshop/answer_2.html"><strong aria-hidden="true">7.17.4.</strong> Answer 2</a></li><li><a href="generics/workshop/question_3.html"><strong aria-hidden="true">7.17.5.</strong> Question 3</a></li><li><a href="generics/workshop/answer_3.html"><strong aria-hidden="true">7.17.6.</strong> Answer 3</a></li><li><a href="generics/workshop/question_4.html"><strong aria-hidden="true">7.17.7.</strong> Question 4</a></li><li><a href="generics/workshop/answer_4.html"><strong aria-hidden="true">7.17.8.</strong> Answer 4</a></li></ol></li></ol></li><li><a href="traits/title.html"><strong aria-hidden="true">8.</strong> Traits</a></li><li><ol class="section"><li><a href="traits/last_time.html"><strong aria-hidden="true">8.1.</strong> Last Time</a></li><li><a href="traits/quote.html"><strong aria-hidden="true">8.2.</strong> Quote</a></li><li><a href="traits/intro.html"><strong aria-hidden="true">8.3.</strong> Introduction</a></li><li><a href="traits/defining_traits.html"><strong aria-hidden="true">8.4.</strong> Defining a Trait</a></li><li><a href="traits/implementing_traits_1.html"><strong aria-hidden="true">8.5.</strong> Implementing Traits 1</a></li><li><a href="traits/implementing_traits_2.html"><strong aria-hidden="true">8.6.</strong> Implementing Traits 2</a></li><li><a href="traits/implementing_traits_3.html"><strong aria-hidden="true">8.7.</strong> Implementing Traits 3</a></li><li><a href="traits/default_implementations_1.html"><strong aria-hidden="true">8.8.</strong> Default Implementations 1</a></li><li><a href="traits/default_implementations_2.html"><strong aria-hidden="true">8.9.</strong> Default Implementations 2</a></li><li><a href="traits/parameters/title.html"><strong aria-hidden="true">8.10.</strong> Traits as Parameters</a></li><li><ol class="section"><li><a href="traits/parameters/trait_bound.html"><strong aria-hidden="true">8.10.1.</strong> Trait Bound Syntax</a></li><li><a href="traits/parameters/trait_bounds.html"><strong aria-hidden="true">8.10.2.</strong> Trait Bounds Syntax</a></li><li><a href="traits/parameters/where_clauses.html"><strong aria-hidden="true">8.10.3.</strong> Where Clauses</a></li></ol></li><li><a href="traits/returning_types_that_implement_traits_1.html"><strong aria-hidden="true">8.11.</strong> Returning Types that Implement Traits 1</a></li><li><a href="traits/returning_types_that_implement_traits_2.html"><strong aria-hidden="true">8.12.</strong> Returning Types that Implement Traits 2</a></li><li><a href="traits/fixing_the_largest_function_1.html"><strong aria-hidden="true">8.13.</strong> Fixing the Largest Function 1</a></li><li><a href="traits/fixing_the_largest_function_2.html"><strong aria-hidden="true">8.14.</strong> Fixing the Largest Function 2</a></li><li><a href="traits/fixing_the_largest_function_3.html"><strong aria-hidden="true">8.15.</strong> Fixing the Largest Function 3</a></li><li><a href="traits/trait_bounds_conditional_methods_1.html"><strong aria-hidden="true">8.16.</strong> Using Trait Bounds to Conditionally Implement Methods 1</a></li><li><a href="traits/trait_bounds_conditional_methods_2.html"><strong aria-hidden="true">8.17.</strong> Using Trait Bounds to Conditionally Implement Methods 2</a></li><li><a href="traits/recap.html"><strong aria-hidden="true">8.18.</strong> Recap</a></li><li><a href="traits/workshop/title.html"><strong aria-hidden="true">8.19.</strong> Workshop</a></li><li><ol class="section"><li><a href="traits/workshop/question_1.html"><strong aria-hidden="true">8.19.1.</strong> Question 1</a></li><li><a href="traits/workshop/answer_1.html"><strong aria-hidden="true">8.19.2.</strong> Answer 1</a></li><li><a href="traits/workshop/question_2.html"><strong aria-hidden="true">8.19.3.</strong> Question 2</a></li><li><a href="traits/workshop/answer_2.html"><strong aria-hidden="true">8.19.4.</strong> Answer 2</a></li><li><a href="traits/workshop/question_3.html"><strong aria-hidden="true">8.19.5.</strong> Question 3</a></li><li><a href="traits/workshop/answer_3.html"><strong aria-hidden="true">8.19.6.</strong> Answer 3</a></li></ol></li></ol></li><li><a href="lifetimes/title.html"><strong aria-hidden="true">9.</strong> Lifetimes</a></li><li><ol class="section"><li><a href="lifetimes/last_time.html"><strong aria-hidden="true">9.1.</strong> Last Time</a></li><li><a href="lifetimes/quote.html"><strong aria-hidden="true">9.2.</strong> Quote</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rust Workshop</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#rust-workshop-series" id="rust-workshop-series"><h1>Rust Workshop Series</h1></a>
+<blockquote>
+<p>Note: This book is currently a WIP. Some sections may be missing or
+incomplete.</p>
+</blockquote>
+<p>The following book contains a series chapters designed to be presented to
+newcomers to the Rust programming language. Each chapter, otherwise know as
+talk, is designed to be approximately an hour long and feature both a speaking
+portion as well as a more interactive 'build something' workshop portion. The
+ideal time split between the lecture and workshop sections is 50/50.</p>
+<a class="header" href="#content" id="content"><h2>Content</h2></a>
+<p>The content of the workshop is largely inspired by the official
+<a href="https://doc.rust-lang.org/book/">book</a> with some modifications. Since the Rust
+community moves quickly, some content can become stale and could potentially be
+older or newer than the book. Best efforts will be made to keep the workshop
+content up to date. Furthermore, the workshop is largely geared toward C or
+embedded C programmers currently. Since it is based on the book, the content
+is general enough for people of various programming backgrounds to understand.
+It is important to note, however, most low level or C-like concepts will get
+less focus than some of the other elements of the language like ownership,
+generics, lifetimes, traits and functional features.</p>
+<a class="header" href="#source-code" id="source-code"><h2>Source Code</h2></a>
+<p>The source file from which the workshop is generated can be found on
+<a href="https://github.com/mvertescher/workshop-rs">GitHub</a>.</p>
+<a class="header" href="#rust-workshop-part-i" id="rust-workshop-part-i"><h1>Rust Workshop: Part I</h1></a>
+<a class="header" href="#introduction-and-cargo" id="introduction-and-cargo"><h2>Introduction and Cargo</h2></a>
+<a class="header" href="#what-is-rust-exactly" id="what-is-rust-exactly"><h1>What <em>is</em> Rust Exactly?</h1></a>
+<a class="header" href="#rust-is-a-systems-language-pursuing-the-trifectabr-safety-concurrency-and-speed" id="rust-is-a-systems-language-pursuing-the-trifectabr-safety-concurrency-and-speed"><h3>Rust is a <em>Systems language</em> pursuing the trifecta:<br> safety, concurrency, and speed</h3></a>
+<a class="header" href="#the-community-provides-an-ecosystem-of-tools-and-packages-br-to-be-productive-in-rust" id="the-community-provides-an-ecosystem-of-tools-and-packages-br-to-be-productive-in-rust"><h3>The community provides an ecosystem of tools and packages <br> to be <em>productive</em> in Rust</h3></a>
+<a class="header" href="#the-type-system" id="the-type-system"><h1>The Type System</h1></a>
+<a class="header" href="#statically-typed-type-errors-are-detected-at-compile-time" id="statically-typed-type-errors-are-detected-at-compile-time"><h3><strong>Statically Typed</strong>: Type errors are detected at compile time</h3></a>
+<a class="header" href="#type-safe-the-language-limits-what-operation-can-be-performed-on-which-types-of-data" id="type-safe-the-language-limits-what-operation-can-be-performed-on-which-types-of-data"><h3><strong>Type Safe</strong>: The language limits what operation can be performed on which types of data</h3></a>
+<p>i.e. No C-like type casting. Strong type enforcement.</p>
+<a class="header" href="#pillars-of-rust" id="pillars-of-rust"><h1>Pillars of Rust</h1></a>
+<a class="header" href="#memory-safety-without-garbage-collection-rust-uses-ownership-to-enforce-access-control-of-data-at-compile-time" id="memory-safety-without-garbage-collection-rust-uses-ownership-to-enforce-access-control-of-data-at-compile-time"><h3><strong>Memory safety without garbage collection</strong>: Rust uses <em>ownership</em> to enforce access control of data at compile time</h3></a>
+<a class="header" href="#concurrency-without-data-races-also-a-product-of-the-ownership-system" id="concurrency-without-data-races-also-a-product-of-the-ownership-system"><h3><strong>Concurrency without data races</strong>: Also a product of the <em>ownership</em> system</h3></a>
+<a class="header" href="#zero-cost-abstractions-traits-rust-is-similar-to-c" id="zero-cost-abstractions-traits-rust-is-similar-to-c"><h3><strong>Zero cost abstractions</strong>: <em>Traits</em>. Rust is similar to C++:</h3></a>
+<blockquote>
+<p>C++ implementations obey the zero-overhead principle: What you don't use,
+you don't pay for [Stroustrup, 1994]. And further: What you do use, you
+couldn't hand code any better.</p>
+<p>-- Stroustrup</p>
+</blockquote>
+<a class="header" href="#a-short-timeline" id="a-short-timeline"><h1>A Short Timeline</h1></a>
+<ul>
+<li><strong>2006</strong>: Frustrated with C++, Graydon Hoare starts a pet project...</li>
+<li><strong>2009</strong>: An early version of Rust is introduced internally at Mozilla for development</li>
+<li><strong>2010</strong>: Rust officially announced by Mozilla</li>
+<li><strong>2013</strong>: Graydon leaves the Rust project; Federated governance for Rust</li>
+<li><strong>2015</strong>: Rust 1.0.0 (stable) is released</li>
+<li><strong>2017</strong>: Firefox Quantum (including Servo) released</li>
+<li><strong>2018</strong>: Rust 2018 is released</li>
+</ul>
+<a class="header" href="#tools" id="tools"><h1>Tools</h1></a>
+<ul>
+<li>Toolchain management: <strong>rustup</strong></li>
+<li>Build/Testing/Publishing: <strong>cargo</strong></li>
+<li>Documentation: <strong>rustdoc</strong></li>
+<li>Formatting: <strong>rustfmt</strong></li>
+<li>Static Analysis: <strong>clippy</strong></li>
+<li>Editor autocomplete: <strong>racer</strong></li>
+<li>C/C++ bindings generator: <strong>bindgen</strong></li>
+<li>Code size profiling: <strong>twiggy</strong></li>
+<li>IDE support: <strong>Rust Language Server (RLS)</strong></li>
+</ul>
+<a class="header" href="#community" id="community"><h1>Community</h1></a>
+<ul>
+<li>There is one package registry called <a href="https://crates.io"><strong>crates.io</strong></a>.</li>
+<li>A software package in Rust is called a <strong>crate</strong>.</li>
+<li>There are ~24000 crates on <a href="https://crates.io"><strong>crates.io</strong></a> today.</li>
+<li>Anyone can upload a new crate using <strong>cargo</strong>.</li>
+</ul>
+<a class="header" href="#domains" id="domains"><h1>Domains</h1></a>
+<a class="header" href="#where-is-rust-used-today" id="where-is-rust-used-today"><h3>Where is Rust used today?</h3></a>
+<ul>
+<li>CLI Tools</li>
+<li>Networking</li>
+<li>WebAssembly</li>
+<li>Graphics/Game Engines</li>
+<li>Operating Systems</li>
+<li>Embedded</li>
+</ul>
+<a class="header" href="#some-wisdom" id="some-wisdom"><h1>Some Wisdom</h1></a>
+<blockquote>
+<p>It wasn’t always so clear, but the Rust programming language is fundamentally
+about empowerment: no matter what kind of code you are writing now, Rust
+empowers you to reach farther, to program with confidence in a wider variety
+of domains than you did before.</p>
+<p>— Nicholas Matsakis and Aaron Turon</p>
+</blockquote>
+<a class="header" href="#getting-started" id="getting-started"><h1>Getting Started!</h1></a>
+<a class="header" href="#lets-build-hello-world" id="lets-build-hello-world"><h3>Let's build hello world!</h3></a>
+<a class="header" href="#hello-world" id="hello-world"><h1>Hello World</h1></a>
+<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre></pre>
+<a class="header" href="#installing-rust" id="installing-rust"><h1>Installing Rust</h1></a>
+<p>Fetch <strong>rustup</strong> using curl:</p>
+<pre><code class="language-sh">$ curl https://sh.rustup.rs -sSf | sh
+</code></pre>
+<p>Be sure to add the tools to your path (if necessary):</p>
+<pre><code class="language-sh">$ export PATH=&quot;$PATH:~/.cargo/bin&quot;
+</code></pre>
+<p>Optionally, restart your console!</p>
+<a class="header" href="#rustup" id="rustup"><h1>Rustup</h1></a>
+<p><code>rustup</code> manages versions of the complier and standard library.</p>
+<pre><code class="language-sh">$ rustup -h
+</code></pre>
+<pre><code class="language-plaintext">SUBCOMMANDS:
+    show           Show the active and installed toolchains
+    update         Update Rust toolchains and rustup
+    default        Set the default toolchain
+    toolchain      Modify or query the installed toolchains
+    target         Modify a toolchain's supported targets
+    component      Modify a toolchain's installed components
+    override       Modify directory toolchain overrides
+    run            Run a command with an environment configured for a given toolchain
+    which          Display which binary will be run for a given command
+    doc            Open the documentation for the current toolchain
+    man            View the man page for a given command
+    self           Modify the rustup installation
+    set            Alter rustup settings
+    completions    Generate completion scripts for your shell
+    help           Prints this message or the help of the given subcommand(s)
+</code></pre>
+<a class="header" href="#rustup-1" id="rustup-1"><h1>Rustup</h1></a>
+<p>The <code>rustup-show</code> command displays active and installed toolchains.</p>
+<pre><code class="language-sh">$ rustup show
+</code></pre>
+<pre><code class="language-plaintext">Default host: x86_64-unknown-linux-gnu
+
+installed toolchains
+--------------------
+
+stable-x86_64-unknown-linux-gnu (default)
+nightly-2018-01-21-x86_64-unknown-linux-gnu
+nightly-x86_64-unknown-linux-gnu
+
+installed targets for active toolchain
+--------------------------------------
+
+armv7-unknown-linux-gnueabihf
+thumbv7em-none-eabihf
+thumbv7m-none-eabi
+x86_64-unknown-linux-gnu
+
+active toolchain
+----------------
+
+stable-x86_64-unknown-linux-gnu (default)
+rustc 1.32.0 (9fda7c223 2019-01-16)
+</code></pre>
+<a class="header" href="#rustup-2" id="rustup-2"><h1>Rustup</h1></a>
+<p>You can switch between complier releases with <code>rustup default</code>.</p>
+<pre><code class="language-sh">$ rustup default nightly
+</code></pre>
+<pre><code class="language-plaintext">info: using existing install for 'nightly-x86_64-unknown-linux-gnu'
+info: default toolchain set to 'nightly-x86_64-unknown-linux-gnu'
+
+  nightly-x86_64-unknown-linux-gnu unchanged - rustc 1.34.0-nightly (f6fac4225 2019-02-03)
+</code></pre>
+<pre><code class="language-sh">$ rustup default stable
+</code></pre>
+<pre><code class="language-plaintext">info: using existing install for 'stable-x86_64-unknown-linux-gnu'
+info: default toolchain set to 'stable-x86_64-unknown-linux-gnu'
+
+  stable-x86_64-unknown-linux-gnu unchanged - rustc 1.32.0 (9fda7c223 2019-01-16)
+</code></pre>
+<a class="header" href="#cargo" id="cargo"><h1>Cargo</h1></a>
+<p>Cargo is Rust's package manager.</p>
+<pre><code class="language-sh">$ cargo -h
+</code></pre>
+<pre><code class="language-plaintext">Rust's package manager
+
+USAGE:
+    cargo [OPTIONS] [SUBCOMMAND]
+
+Some common cargo commands are (see all commands with --list):
+    build       Compile the current package
+    check       Analyze the current package and report errors, but don't build object files
+    clean       Remove the target directory
+    doc         Build this package's and its dependencies' documentation
+    new         Create a new cargo package
+    init        Create a new cargo package in an existing directory
+    run         Build and execute src/main.rs
+    test        Run the tests
+    bench       Run the benchmarks
+    update      Update dependencies listed in Cargo.lock
+    search      Search registry for crates
+    publish     Package and upload this package to the registry
+    install     Install a Rust binary. Default location is $HOME/.cargo/bin
+    uninstall   Uninstall a Rust binary
+</code></pre>
+<p>Cargo was originally influenced by npm and bundler.</p>
+<a class="header" href="#cargo-new" id="cargo-new"><h1>Cargo New</h1></a>
+<p>Cargo new creates a new Rust package.</p>
+<pre><code class="language-sh">$ cargo new -h
+</code></pre>
+<pre><code class="language-plaintext">cargo-new
+Create a new cargo package at path
+
+USAGE:
+    cargo new [OPTIONS] path
+
+OPTIONS:
+        --registry  REGISTRY     Registry to use
+        --vcs VCS                Initialize a new repository for the given version control system (git, hg, pijul, or
+                                 fossil) or do not initialize any version control at all (none), overriding a global
+                                 configuration. [possible values: git, hg, pijul, fossil, none]
+        --bin                    Use a binary (application) template [default]
+        --lib                    Use a library template
+        --edition YEAR           Edition to set for the crate generated [possible values: 2015, 2018]
+        --name NAME              Set the resulting package name, defaults to the directory name
+    -v, --verbose                Use verbose output (-vv very verbose/build.rs output)
+    -q, --quiet                  No output printed to stdout
+        --color WHEN             Coloring: auto, always, never
+        --frozen                 Require Cargo.lock and cache are up to date
+        --locked                 Require Cargo.lock is up to date
+    -Z  FLAG...                  Unstable (nightly-only) flags to Cargo, see 'cargo -Z help' for details
+    -h, --help                   Prints help information
+</code></pre>
+<a class="header" href="#new-crate" id="new-crate"><h1>New crate</h1></a>
+<a class="header" href="#cargotoml" id="cargotoml"><h1>Cargo.toml</h1></a>
+<a class="header" href="#cargo-build" id="cargo-build"><h1>cargo build</h1></a>
+<a class="header" href="#cargolock" id="cargolock"><h1>Cargo.lock</h1></a>
+<a class="header" href="#cargo-run" id="cargo-run"><h1>Cargo Run</h1></a>
+<a class="header" href="#cargo-run-release" id="cargo-run-release"><h1>Cargo Run Release</h1></a>
+<a class="header" href="#rust-workshop-part-ii" id="rust-workshop-part-ii"><h1>Rust Workshop: Part II</h1></a>
+<a class="header" href="#common-programming-concepts" id="common-programming-concepts"><h2>Common Programming Concepts</h2></a>
+<a class="header" href="#last-time" id="last-time"><h1>Last Time</h1></a>
+<ul>
+<li>What <em>is</em> Rust?</li>
+<li>A Brief history</li>
+<li>Overview of the ecosystem</li>
+<li>An introduction to <code>Rustup</code> and <code>Cargo</code></li>
+<li>Built hello world!</li>
+</ul>
+<a class="header" href="#today" id="today"><h1>Today</h1></a>
+<ul>
+<li>Variables and Mutability</li>
+<li>Data types</li>
+<li>Functions</li>
+<li>Comments</li>
+<li>Control flow</li>
+<li>Building a CLI tool: Part 1</li>
+</ul>
+<a class="header" href="#quote" id="quote"><h1>Quote</h1></a>
+<p>No quote yet!</p>
+<a class="header" href="#keywords" id="keywords"><h1>Keywords</h1></a>
+<ul>
+<li><strong>2015</strong>: as break const continue crate else enum extern false fn for if impl
+in let loop match mod move mut pub ref return self Self static struct super
+trait true type unsafe use where while</li>
+<li><strong>2018</strong>: dyn</li>
+<li><strong>Reserved 2015</strong>: abstract become box do final macro override priv typeof
+unsized virtual yield</li>
+<li><strong>Reserved 2018</strong>: async await try</li>
+</ul>
+<a class="header" href="#identifiers" id="identifiers"><h1>Identifiers</h1></a>
+<p>Identifiers are names for variables, functions, structs, etc...</p>
+<p>Here are some examples:</p>
+<ul>
+<li><code>a_var</code> is valid.</li>
+<li><code>_var2</code> is valid.</li>
+<li><code>3var</code> is not valid.</li>
+</ul>
+<a class="header" href="#variables" id="variables"><h1>Variables</h1></a>
+<p>Variables in Rust are <strong>immutable</strong> by default.</p>
+<p><em>All</em> variables have a type known at compile time.</p>
+<p>Rust has <em>Type Inference</em>. This enables us to omit type annotations.</p>
+<pre><code class="language-rust ignore">fn main() {
+    let x = 7;
+    x = 8;
+}
+</code></pre>
+<pre><code class="language-plaintext">$ cargo run
+   Compiling test-rs v0.1.0 (/home/mv/dev/test-rs)
+error[E0384]: cannot assign twice to immutable variable `x`
+--&gt; src/main.rs:3:5
+  |
+2 |     let x = 7;
+  |         -
+  |         |
+  |         first assignment to `x`
+  |         help: make this binding mutable: `mut x`
+3 |     x = 8;
+  |     ^^^^^ cannot assign twice to immutable variable
+
+error: aborting due to previous error
+</code></pre>
+<a class="header" href="#variables-1" id="variables-1"><h1>Variables</h1></a>
+<p>In Rust, we have to explicitly add the <code>mut</code> keyword to make a variable
+mutable.</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+  let mut x = 7;
+  x = 8;
+}
+</code></pre></pre>
+<p>In this particular example, we some warnings:</p>
+<pre><code class="language-plaintext">$ cargo run
+   Compiling test-rs v0.1.0 (/home/mv/dev/test-rs)
+warning: variable `x` is assigned to, but never used
+ --&gt; src/main.rs:2:13
+  |
+2 |     let mut x = 7;
+  |             ^
+  |
+  = note: #[warn(unused_variables)] on by default
+  = note: consider using `_x` instead
+
+warning: value assigned to `x` is never read
+ --&gt; src/main.rs:3:5
+  |
+3 |     x = 8;
+  |     ^
+  |
+  = note: #[warn(unused_assignments)] on by default
+</code></pre>
+<a class="header" href="#variables-2" id="variables-2"><h1>Variables</h1></a>
+<p>Let's add <code>_</code> to our variable to tell the compiler that it is currently unused.</p>
+<p>Using <code>_</code> is useful in situations where we <em>may</em> want to act on a value later.
+For now, however, it is ignored.</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    let mut _x = 7;
+    _x = 8;
+}
+</code></pre></pre>
+<pre><code class="language-plaintext">$ cargo run
+ Compiling test-rs v0.1.0 (/home/mv/dev/test-rs)
+  Finished dev [unoptimized + debuginfo] target(s) in 0.19s
+   Running `target/debug/test-rs`
+</code></pre>
+<p>Success!</p>
+<a class="header" href="#variable-shadowing" id="variable-shadowing"><h1>Variable Shadowing</h1></a>
+<p>We can shadow existing variables in a scope:</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    let x = 7;
+    let x = x * x;
+    println!(&quot;The value of x is: {}&quot;, x);
+}
+</code></pre></pre>
+<pre><code class="language-plaintext">$ cargo run
+ Compiling test-rs v0.1.0 (/home/mv/dev/test-rs)
+  Finished dev [unoptimized + debuginfo] target(s) in 0.20s
+   Running `target/debug/test-rs`
+The value of x is: 49
+</code></pre>
+<p>We're effectively creating a new variable with the same name.</p>
+<a class="header" href="#variables-and-types" id="variables-and-types"><h1>Variables and Types</h1></a>
+<p>When declared, variables are assigned a type.</p>
+<pre><code class="language-rust ignore">fn main() {
+    let mut s = &quot;This is a `&amp;str` type&quot;;
+    s = s.len();
+}
+</code></pre>
+<p>You cannot assign mismatch types when assigning variables.</p>
+<pre><code class="language-plaintext">$ cargo run
+   Compiling test-rs v0.1.0 (/home/mv/dev/test-rs)
+error[E0308]: mismatched types
+ --&gt; src/main.rs:3:9
+  |
+3 |     s = s.len();
+  |         ^^^^^^^ expected &amp;str, found usize
+  |
+  = note: expected type `&amp;str`
+    found type `usize`
+</code></pre>
+<a class="header" href="#data-types" id="data-types"><h1>Data Types</h1></a>
+<a class="header" href="#scalars" id="scalars"><h1>Scalars</h1></a>
+<a class="header" href="#integer-literals" id="integer-literals"><h1>Integer Literals</h1></a>
+<a class="header" href="#others" id="others"><h1>Others</h1></a>
+<a class="header" href="#type-annotations-1" id="type-annotations-1"><h1>Type Annotations 1</h1></a>
+<a class="header" href="#type-annotations-2" id="type-annotations-2"><h1>Type Annotations 2</h1></a>
+<a class="header" href="#type-annotations-3" id="type-annotations-3"><h1>Type Annotations 3</h1></a>
+<a class="header" href="#numeric-casting-1" id="numeric-casting-1"><h1>Numeric Casting 1</h1></a>
+<a class="header" href="#numeric-casting-2" id="numeric-casting-2"><h1>Numeric Casting 2</h1></a>
+<a class="header" href="#clippy-example" id="clippy-example"><h1>Clippy Example</h1></a>
+<a class="header" href="#compound-types" id="compound-types"><h1>Compound Types</h1></a>
+<a class="header" href="#tuples" id="tuples"><h1>Tuples</h1></a>
+<a class="header" href="#arrays-1" id="arrays-1"><h1>Arrays 1</h1></a>
+<a class="header" href="#arrays-2" id="arrays-2"><h1>Arrays 2</h1></a>
+<a class="header" href="#arrays-3" id="arrays-3"><h1>Arrays 3</h1></a>
+<a class="header" href="#rust-workshop-part-iii" id="rust-workshop-part-iii"><h1>Rust Workshop: Part III</h1></a>
+<a class="header" href="#ownership" id="ownership"><h2>Ownership</h2></a>
+<a class="header" href="#last-time-1" id="last-time-1"><h1>Last Time</h1></a>
+<ul>
+<li>Variables and Mutability</li>
+<li>Data types</li>
+<li>Functions</li>
+<li>Comments</li>
+<li>Control flow</li>
+<li><code>emoji-fzf</code>: Part 1</li>
+</ul>
+<a class="header" href="#today-1" id="today-1"><h1>Today</h1></a>
+<ul>
+<li>What is Ownership?</li>
+<li>References and Borrowing</li>
+<li>Slices</li>
+<li><code>emoji-fzf</code>: Part 2</li>
+</ul>
+<a class="header" href="#quote-1" id="quote-1"><h1>Quote</h1></a>
+<blockquote>
+<p>Ownership is hard.</p>
+<p>It indeed is. And you managed to do that exact hard
+thing by hand, without any mechanical checks. (Or so you think.)</p>
+<p>– @Cryolite on <a href="https://twitter.com/Cryolite/status/1104325100881375232">twitter</a> (translated from Japanese)</p>
+</blockquote>
+<a class="header" href="#rust-workshop-part-iv" id="rust-workshop-part-iv"><h1>Rust Workshop: Part IV</h1></a>
+<a class="header" href="#structs-enums-and-crates" id="structs-enums-and-crates"><h2>Structs, Enums and Crates</h2></a>
+<a class="header" href="#last-time-2" id="last-time-2"><h1>Last Time</h1></a>
+<ul>
+<li>What is Ownership?</li>
+<li>References and Borrowing</li>
+<li>Slices</li>
+<li><code>emoji-fzf</code>: Part 2</li>
+</ul>
+<a class="header" href="#today-2" id="today-2"><h1>Today</h1></a>
+<ul>
+<li>Structs</li>
+<li>Method Syntax</li>
+<li>Enums</li>
+<li>Matches</li>
+<li>Packages, Crates, Modules</li>
+<li>Visibility Modifiers</li>
+<li><code>emoji-fzf</code>: Part 3</li>
+</ul>
+<a class="header" href="#quote-2" id="quote-2"><h1>Quote</h1></a>
+<blockquote>
+<p>&amp;T means it’s borrowed, and T means it’s owned, and you can’t take ownership
+of a thing you’ve borrowed — Rust doesn’t support stealing! 😉</p>
+<p>– kornel on <a href="https://users.rust-lang.org/t/vec-t-to-vec-t/21736/2">rust-users</a></p>
+</blockquote>
+<a class="header" href="#rust-workshop-part-v" id="rust-workshop-part-v"><h1>Rust Workshop: Part V</h1></a>
+<a class="header" href="#common-collections" id="common-collections"><h2>Common Collections</h2></a>
+<a class="header" href="#last-time-3" id="last-time-3"><h1>Last Time</h1></a>
+<ul>
+<li>Structs</li>
+<li>Method Syntax</li>
+<li>Enums</li>
+<li>Matches</li>
+<li>Packages, Crates, Modules</li>
+<li>Visibility Modifiers</li>
+<li><code>emoji-fzf</code>: Part 3</li>
+</ul>
+<a class="header" href="#today-3" id="today-3"><h1>Today</h1></a>
+<ul>
+<li>The Standard Library</li>
+<li><code>Vec</code></li>
+<li><code>String</code></li>
+<li><code>HashMap</code></li>
+<li><code>emoji-fzf</code>: Part 4</li>
+</ul>
+<a class="header" href="#quote-3" id="quote-3"><h1>Quote</h1></a>
+<blockquote>
+<blockquote>
+<p>When programmers are saying that there are a lot of bicycles in code that
+means that it contains reimplementations of freely available libraries instead
+of using them</p>
+</blockquote>
+<p>Presumably the metric for this would be bicyclomatic complexity?</p>
+<p>— <a href="https://www.reddit.com/r/rust/comments/6zdvza/my_experience_participating_in_highload_cup_re/dmuoydx/">/u/tomwhoiscontrary on reddit</a></p>
+</blockquote>
+<a class="header" href="#the-standard-library" id="the-standard-library"><h1>The Standard Library</h1></a>
+<ul>
+<li>The <em>foundation</em> of portable Rust software</li>
+<li><code>std</code> is available to all crates by default</li>
+<li>Parts of <code>std</code> can be brought into scope via <code>use</code>:
+<ul>
+<li>ex. <code>use std::env;</code></li>
+</ul>
+</li>
+</ul>
+<p>In recent times, the standard library consists of two parts:</p>
+<ul>
+<li><code>core</code>: A <em>minimal</em> platform dependency free (no heap, no I/O, no concurrency) foundation.</li>
+<li><code>std</code>: <code>core</code> plus `platform depenpendent core types.</li>
+</ul>
+<p><code>core</code> is a subset of <code>std</code>.</p>
+<p>We'll circle back on this when we talk about crates without the <code>std</code> library!</p>
+<a class="header" href="#a-quick-tour" id="a-quick-tour"><h1>A Quick Tour</h1></a>
+<ul>
+<li>Options and errors: <code>Option&lt;T&gt;</code> and <code>Result&lt;T, E&gt;</code></li>
+<li>Iterators: <code>std::iter</code> and the <code>Iterator</code> trait</li>
+<li>Contiguous memory regions:
+<ul>
+<li><code>Vec&lt;T&gt;</code>: A heap-allocated <em>vector</em> that is resizable at runtime.</li>
+<li><code>[T; n]</code>: An inline <em>array</em> with a fixed size at compile time.</li>
+<li><code>[T]</code>: A dynamically sized slice into any other kind of contiguous storage, whether heap-allocated or not.</li>
+</ul>
+</li>
+<li>Slices
+<ul>
+<li><code>&amp;[T]</code>: <em>shared slice</em></li>
+<li><code>&amp;mut [T]</code>: <em>mutable slice</em></li>
+<li><code>Box&lt;T&gt;</code>: <em>owned slice</em></li>
+</ul>
+</li>
+<li>UTF-8 strings: <code>&amp;str</code> and <code>String</code></li>
+<li>Utilities for printing <code>String</code>s: <code>std::fmt</code> and associated macros</li>
+<li>Data sharing: <code>Rc</code>, <code>Cell</code>, <code>RefCell</code>, <code>Arc</code> and <code>Mutex</code></li>
+<li><code>std::collections</code>: maps, sets, linked lists and others.</li>
+<li>Platform abstractions and I/O
+<ul>
+<li>Typically I/O: <code>io</code>, <code>fs</code> and <code>net</code></li>
+<li>Threading: <code>thread</code>, <code>sync</code>, <code>atomic</code>, <code>mpsc</code></li>
+</ul>
+</li>
+</ul>
+<a class="header" href="#collection-types" id="collection-types"><h1>Collection Types</h1></a>
+<p>Collections fall into four major categories:</p>
+<ul>
+<li>Sequences: <code>Vec</code>, <code>VecDeque</code>, <code>LinkedList</code></li>
+<li>Maps: <code>HashMap</code>, <code>BTreeMap</code></li>
+<li>Sets: <code>HashSet</code>, <code>BTreeSet</code></li>
+<li>Misc: <code>BinaryHeap</code></li>
+</ul>
+<p><code>Vec</code> and <code>HashMap</code> are the most commonly used.</p>
+<p><code>Vec</code> (called <em>vector</em>) stores a variable number of values next to each other.</p>
+<p><code>HashMap</code> associates values with a particular key.</p>
+<p>In comparison, other types are consider <em>niche</em>.</p>
+<a class="header" href="#vectors" id="vectors"><h1>Vectors</h1></a>
+<p><code>Vec&lt;T&gt;</code> is the most widely used collection.</p>
+<p>It is used to store items of the same type <code>T</code>.</p>
+<p>It is akin to a dynamically sized, heap-allocated, array.</p>
+<a class="header" href="#vector-basics" id="vector-basics"><h1>Vector Basics</h1></a>
+<p><code>Vec</code> from <code>std::vec::Vec</code> is included in the prelude.</p>
+<p>We can create a new <code>Vec</code> explicitly:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let v: Vec&lt;i32&gt; = Vec::new();
+
+println!(&quot;{:?}&quot;, v);
+#}</code></pre></pre>
+<p>Or we can create a new <code>Vec</code> with some initial content via a macro <code>vec!</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let v = vec![1, 2, 3];
+
+println!(&quot;{:?}&quot;, v);
+#}</code></pre></pre>
+<p>We can create the same <code>Vec</code> using the <code>push</code> method:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let mut v = Vec::new();
+
+v.push(1);
+v.push(2);
+v.push(3);
+
+println!(&quot;{:?}&quot;, v);
+#}</code></pre></pre>
+<p>When a vector goes out of scope, all its contents are dropped.</p>
+<a class="header" href="#reading-elements" id="reading-elements"><h1>Reading Elements</h1></a>
+<p>There are two ways to reference a value stored in a vector: indexing syntax or
+the <code>get</code> method.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let v = vec![1, 2, 3, 4, 5];
+
+let third: &amp;i32 = &amp;v[2];
+println!(&quot;The third element is {}&quot;, third);
+
+match v.get(2) {
+    Some(third) =&gt; println!(&quot;The third element is {}&quot;, third),
+    None =&gt; println!(&quot;There is no third element.&quot;),
+}
+#}</code></pre></pre>
+<p>We can match on the <a href="https://doc.rust-lang.org/std/vec/struct.Vec.html?search=#method.get"><code>get</code>
+method</a>
+above because it returns <code>Option&lt;T&gt;</code>.</p>
+<a class="header" href="#reading-elements-1" id="reading-elements-1"><h1>Reading Elements</h1></a>
+<p>Indexing into a non-existent element results in a panic:</p>
+<pre><pre class="playpen"><code class="language-rust should_panic panics">
+# #![allow(unused_variables)]
+#fn main() {
+let v = vec![1, 2, 3, 4, 5];
+
+let does_not_exist = &amp;v[100];
+#}</code></pre></pre>
+<p>Calling <code>get()</code> on a non-existent element returns <code>None</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let v = vec![1, 2, 3, 4, 5];
+
+let does_not_exist = v.get(100);
+
+# assert_eq!(None, does_not_exist);
+#}</code></pre></pre>
+<a class="header" href="#reading-elements-2" id="reading-elements-2"><h1>Reading Elements</h1></a>
+<p>What happens when we reference a vector element and then try to modify the
+vector?</p>
+<pre><code class="language-rust ignore does_not_compile">let mut v = vec![1, 2, 3, 4, 5];
+
+let first = &amp;v[0];
+
+v.push(6);
+
+println!(&quot;The first element is: {}&quot;, first);
+</code></pre>
+<pre><code class="language-text">error[E0502]: cannot borrow `v` as mutable because it is also borrowed as immutable
+  --&gt; src/main.rs:11:1
+   |
+5  | let first = &amp;v[0];
+   |              - immutable borrow occurs here
+6  |
+7  | v.push(6);
+   | ^ mutable borrow occurs here
+...
+10 | }
+   | - immutable borrow ends here
+</code></pre>
+<a class="header" href="#iterating-over-values" id="iterating-over-values"><h1>Iterating over Values</h1></a>
+<p>To iterate over immutable references:</p>
+<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+    let v: Vec&lt;u32&gt; = vec![100, 32, 57];
+    for i in &amp;v {
+        println!(&quot;{}&quot;, i);
+        // Uncomment below to see the type of `i`!
+        // assert_eq!((), i);
+    }
+}
+</code></pre></pre>
+<p>To iterate over mutable references:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let mut v = vec![100, 32, 57];
+for i in &amp;mut v {
+    *i += 50;
+}
+
+println!(&quot;{:?}&quot;, v);
+#}</code></pre></pre>
+<p>Note: we need to <em>dereference</em> <code>i</code> using <code>*</code> before modifying.</p>
+<a class="header" href="#storing-multiple-types" id="storing-multiple-types"><h1>Storing Multiple Types</h1></a>
+<p><code>Vec</code>s can only store items of the same time.</p>
+<p>Rust must know the size of <code>T</code> at compile time such that it knows how much heap
+memory to allocate for each elements.</p>
+<p>An intermediate enum can be used to wrap an exhaustive set of types:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+# #[derive(Debug)]
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
+}
+
+let row = vec![
+    SpreadsheetCell::Int(3),
+    SpreadsheetCell::Text(String::from(&quot;blue&quot;)),
+    SpreadsheetCell::Float(10.12),
+];
+
+println!(&quot;{:?}&quot;, row);
+#}</code></pre></pre>
+<p>If you don't know all the types the vector will hold at runtime, a <em>trait
+object</em> can be used instead.</p>
+<a class="header" href="#hash-maps" id="hash-maps"><h1>Hash Maps</h1></a>
+<p><a href="https://doc.rust-lang.org/std/collections/struct.HashMap.html">Hash maps</a> in
+Rust are represented via the type <code>HashMap&lt;K, V&gt;</code>.</p>
+<p>This is a mapping of keys of type <code>K</code> to values of type <code>V</code>.</p>
+<p>Like vectors, types <code>K</code> and <code>V</code> are fixed at compile time.</p>
+<a class="header" href="#hash-map-basics" id="hash-map-basics"><h1>Hash Map Basics</h1></a>
+<p>Like vectors, hash map data is stored on the heap.</p>
+<p>Unlike vectors, <code>HashMap</code> is not included in the prelude and must be brought
+into scope.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from(&quot;Blue&quot;), 10);
+scores.insert(String::from(&quot;Yellow&quot;), 50);
+
+println!(&quot;{:?}&quot;, scores);
+#}</code></pre></pre>
+<a class="header" href="#hash-map-basics-1" id="hash-map-basics-1"><h1>Hash Map Basics</h1></a>
+<p>Another way of creating <code>HashMap</code>s is by <code>collect</code>ing a vector of tuples.</p>
+<p><code>zip</code>ing two vectors creates a single vector of tuples.</p>
+<pre><pre class="playpen"><code class="language-rust editable">use std::collections::HashMap;
+
+fn main() {
+    let teams = vec![String::from(&quot;Blue&quot;), String::from(&quot;Yellow&quot;)];
+    let initial_scores = vec![10, 50];
+
+    let scores: HashMap&lt;_, _&gt; = teams.iter().zip(initial_scores.iter()).collect();
+
+    println!(&quot;{:?}&quot;, scores);
+}
+</code></pre></pre>
+<p><code>HashMap&lt;_, _&gt;</code> is require with <code>collect</code> because we could collect other data
+structures.</p>
+<p>However, we can use <code>_</code> for <code>K</code> and <code>V</code> since these can be inferred.</p>
+<a class="header" href="#ownership-1" id="ownership-1"><h1>Ownership</h1></a>
+<p>The <code>insert</code> method <em>moves</em> data into the hash map.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::collections::HashMap;
+
+let field_name = String::from(&quot;Favorite color&quot;);
+let field_value = String::from(&quot;Blue&quot;);
+
+let mut map = HashMap::new();
+map.insert(field_name, field_value);
+// `field_name` and `field_value` are now invalid!
+
+println!(&quot;{:?}&quot;, map);
+#}</code></pre></pre>
+<p>The map above now owns <code>field_name</code> and <code>field_value</code>.</p>
+<a class="header" href="#accessing-values" id="accessing-values"><h1>Accessing Values</h1></a>
+<p>We can directly attempt to <code>get</code> a value for a key:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from(&quot;Blue&quot;), 10);
+scores.insert(String::from(&quot;Yellow&quot;), 50);
+
+let team_name = String::from(&quot;Blue&quot;);
+let score = scores.get(&amp;team_name);
+
+assert_eq!(Some(&amp;10), score);
+#}</code></pre></pre>
+<a class="header" href="#accessing-values-1" id="accessing-values-1"><h1>Accessing Values</h1></a>
+<p>We can iterate over the keys/values of a hash map:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from(&quot;Blue&quot;), 10);
+scores.insert(String::from(&quot;Yellow&quot;), 50);
+
+for (key, value) in &amp;scores {
+    println!(&quot;{}: {}&quot;, key, value);
+}
+#}</code></pre></pre>
+<a class="header" href="#updating-values" id="updating-values"><h1>Updating Values</h1></a>
+<p>If we call <code>insert</code> on the same key twice, we can overwrite a value.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from(&quot;Blue&quot;), 10);
+scores.insert(String::from(&quot;Blue&quot;), 25);
+
+println!(&quot;{:?}&quot;, scores)
+#}</code></pre></pre>
+<a class="header" href="#updating-values-1" id="updating-values-1"><h1>Updating Values</h1></a>
+<p>We can use the <code>entry</code> method to fetch an element that may or may not exist.</p>
+<p>Coupled with <code>or_insert</code>, we can add a pair if the key does not already exist:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+scores.insert(String::from(&quot;Blue&quot;), 10);
+
+scores.entry(String::from(&quot;Yellow&quot;)).or_insert(50);
+scores.entry(String::from(&quot;Blue&quot;)).or_insert(50);
+
+println!(&quot;{:?}&quot;, scores)
+#}</code></pre></pre>
+<a class="header" href="#updating-values-2" id="updating-values-2"><h1>Updating Values</h1></a>
+<p>Finally, it's common to update a value based on the previous value:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::collections::HashMap;
+
+let text = &quot;hello world wonderful world&quot;;
+
+let mut map = HashMap::new();
+
+for word in text.split_whitespace() {
+    let count = map.entry(word).or_insert(0);
+    *count += 1;
+}
+
+println!(&quot;{:?}&quot;, map)
+#}</code></pre></pre>
+<a class="header" href="#hashing-functions" id="hashing-functions"><h1>Hashing Functions</h1></a>
+<p>By default, <code>HashMap</code> uses a “cryptographically strong”<sup class="footnote-reference"><a href="#siphash">1</a></sup> hashing
+function that can provide resistance to Denial of Service (DoS) attacks.</p>
+<p>In the interest of performance, an alternative <em>hasher</em> type can be created.</p>
+<p>Alternatively, a drop-in replacement can be used like
+<a href="https://github.com/Amanieu/hashbrown">https://github.com/Amanieu/hashbrown</a>
+for instance.</p>
+<div class="footnote-definition" id="siphash"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://www.131002.net/siphash/siphash.pdf">https://www.131002.net/siphash/siphash.pdf</a></p>
+</div>
+<a class="header" href="#emoji-fzf-part-4" id="emoji-fzf-part-4"><h1><code>emoji-fzf</code>: Part 4</h1></a>
+<p><img src="https://cdn.rawgit.com/noahp/emoji-fzf/assets/demo.svg"></p>
+<a class="header" href="#last-time-4" id="last-time-4"><h1>Last Time</h1></a>
+<p>We left off <a href="https://github.com/mvertescher/emoji-fzf/tree/2c7d356dc57e8b8bcd1e3b72692ce9ebf59fdca3">here</a>...</p>
+<pre><code class="language-rust ignore"># extern crate clap;
+use clap::{crate_name, crate_description, crate_version, crate_authors};
+use clap::{App, Arg, SubCommand};
+
+fn main() {
+    let matches = App::new(crate_name!())
+        .about(crate_description!())
+        .version(crate_version!())
+        .author(crate_authors!())
+        .subcommand(SubCommand::with_name(&quot;get&quot;)
+                    .about(&quot;Get unicode emoji given a name&quot;)
+                    .arg(Arg::with_name(&quot;name&quot;)
+                        .help(&quot;Name of the emoji to display&quot;)
+                        .index(1)
+                        .required(true)))
+        .get_matches();
+
+    match matches.subcommand() {
+        (&quot;get&quot;, Some(m)) =&gt; {
+            let name = m.value_of(&quot;name&quot;).unwrap();
+            display_emoji(name);
+        }
+        _ =&gt; std::process::exit(0),
+    }
+}
+
+fn display_emoji(name: &amp;str) {
+    for emoji in emojis::EMOJIS {
+        if name == emoji.0 {
+            println!(&quot;{}&quot;, emoji.1);
+            std::process::exit(0);
+        }
+    }
+    std::process::exit(1);
+}
+
+mod emojis {
+    pub const EMOJIS: &amp;[(&amp;str, &amp;str)] = &amp;[
+        (&quot;grinning&quot;,&quot;😀&quot;),
+        (&quot;grimacing&quot;,&quot;😬&quot;),
+        // ...
+        (&quot;united_nations&quot;,&quot;🇺🇳&quot;),
+        (&quot;pirate_flag&quot;,&quot;🏴‍☠️&quot;),
+    ];
+}
+</code></pre>
+<a class="header" href="#assignment-1" id="assignment-1"><h1>Assignment 1</h1></a>
+<blockquote>
+<p>Extend <code>clap::App</code> to print each emoji name on a new line when the <code>preview</code>
+subcommand is called.</p>
+</blockquote>
+<pre><code class="language-rust ignore editable">extern crate clap;
+
+use clap::{crate_name, crate_description, crate_version, crate_authors};
+use clap::{App, Arg, SubCommand};
+
+fn main() {
+    let matches = App::new(crate_name!())
+        .about(crate_description!())
+        .version(crate_version!())
+        .author(crate_authors!())
+        .subcommand(SubCommand::with_name(&quot;get&quot;)
+                    .about(&quot;Get unicode emoji given a name&quot;)
+                    .arg(Arg::with_name(&quot;name&quot;)
+                        .help(&quot;Name of the emoji to display&quot;)
+                        .index(1)
+                        .required(true)))
+        .get_matches();
+
+    match matches.subcommand() {
+        (&quot;get&quot;, Some(m)) =&gt; {
+            let name = m.value_of(&quot;name&quot;).unwrap();
+            display_emoji(name);
+        }
+        _ =&gt; std::process::exit(0),
+    }
+}
+
+fn display_emoji(name: &amp;str) {
+    for emoji in emojis::EMOJIS {
+        if name == emoji.0 {
+            println!(&quot;{}&quot;, emoji.1);
+            std::process::exit(0);
+        }
+    }
+    std::process::exit(1);
+}
+
+mod emojis {
+    pub const EMOJIS: &amp;[(&amp;str, &amp;str)] = &amp;[
+        (&quot;grinning&quot;,&quot;😀&quot;),
+        (&quot;grimacing&quot;,&quot;😬&quot;),
+        // ...
+        (&quot;united_nations&quot;,&quot;🇺🇳&quot;),
+        (&quot;pirate_flag&quot;,&quot;🏴‍☠️&quot;),
+    ];
+}
+</code></pre>
+<a class="header" href="#answer-1" id="answer-1"><h1>Answer 1</h1></a>
+<blockquote>
+<p>Extend <code>clap::App</code> to print each emoji name on a new line when the <code>preview</code>
+subcommand is called.</p>
+</blockquote>
+<pre><code class="language-rust ignore">extern crate clap;
+
+use clap::{crate_name, crate_description, crate_version, crate_authors};
+use clap::{App, Arg, SubCommand};
+
+fn main() {
+    let matches = App::new(crate_name!())
+        .about(crate_description!())
+        .version(crate_version!())
+        .author(crate_authors!())
+        .subcommand(SubCommand::with_name(&quot;get&quot;)
+                    .about(&quot;Get unicode emoji given a name&quot;)
+                    .arg(Arg::with_name(&quot;name&quot;)
+                        .help(&quot;Name of the emoji to display&quot;)
+                        .index(1)
+                        .required(true)))
+        .subcommand(SubCommand::with_name(&quot;preview&quot;)
+                    .about(&quot;Display a list of all available emojis by name&quot;))
+        .get_matches();
+
+    match matches.subcommand() {
+        (&quot;get&quot;, Some(m)) =&gt; {
+            let name = m.value_of(&quot;name&quot;).unwrap();
+            display_emoji(name);
+        }
+        (&quot;preview&quot;, _) =&gt; {
+            for emoji in emojis::EMOJIS {
+                println!(&quot;{}&quot;, emoji.0);
+            }
+        }
+        _ =&gt; std::process::exit(0),
+    }
+}
+
+fn display_emoji(name: &amp;str) {
+    for emoji in emojis::EMOJIS {
+        if name == emoji.0 {
+            println!(&quot;{}&quot;, emoji.1);
+            std::process::exit(0);
+        }
+    }
+    std::process::exit(1);
+}
+
+mod emojis {
+    pub const EMOJIS: &amp;[(&amp;str, &amp;str)] = &amp;[
+        (&quot;grinning&quot;,&quot;😀&quot;),
+        (&quot;grimacing&quot;,&quot;😬&quot;),
+        // ...
+        (&quot;united_nations&quot;,&quot;🇺🇳&quot;),
+        (&quot;pirate_flag&quot;,&quot;🏴‍☠️&quot;),
+    ];
+}
+</code></pre>
+<a class="header" href="#assignment-2" id="assignment-2"><h1>Assignment 2</h1></a>
+<blockquote>
+<p>Refactor <code>emoji-fzf</code> by adding an <code>args</code> module that contains a function
+<code>parse()</code>.</p>
+<p><code>parse()</code> should return a <code>Command</code> enum with variants that contain any
+argument data.</p>
+<p><code>main()</code> should use the <code>Command</code> from <code>parse()</code> to call the appropriate
+handler.</p>
+</blockquote>
+<pre><code class="language-rust ignore editable">extern crate clap;
+
+use clap::{crate_name, crate_description, crate_version, crate_authors};
+use clap::{App, Arg, SubCommand};
+
+fn main() {
+    let matches = App::new(crate_name!())
+        .about(crate_description!())
+        .version(crate_version!())
+        .author(crate_authors!())
+        .subcommand(SubCommand::with_name(&quot;get&quot;)
+                    .about(&quot;Get unicode emoji given a name&quot;)
+                    .arg(Arg::with_name(&quot;name&quot;)
+                        .help(&quot;Name of the emoji to display&quot;)
+                        .index(1)
+                        .required(true)))
+        .subcommand(SubCommand::with_name(&quot;preview&quot;)
+                    .about(&quot;Display a list of all available emojis by name&quot;))
+        .get_matches();
+
+    match matches.subcommand() {
+        (&quot;get&quot;, Some(m)) =&gt; {
+            let name = m.value_of(&quot;name&quot;).unwrap();
+            display_emoji(name);
+        }
+        (&quot;preview&quot;, _) =&gt; {
+            for emoji in emojis::EMOJIS {
+                println!(&quot;{}&quot;, emoji.0);
+            }
+        }
+        _ =&gt; std::process::exit(0),
+    }
+}
+
+fn display_emoji(name: &amp;str) {
+    for emoji in emojis::EMOJIS {
+        if name == emoji.0 {
+            println!(&quot;{}&quot;, emoji.1);
+            std::process::exit(0);
+        }
+    }
+    std::process::exit(1);
+}
+
+mod emojis {
+    pub const EMOJIS: &amp;[(&amp;str, &amp;str)] = &amp;[
+        (&quot;grinning&quot;,&quot;😀&quot;),
+        (&quot;grimacing&quot;,&quot;😬&quot;),
+        // ...
+        (&quot;united_nations&quot;,&quot;🇺🇳&quot;),
+        (&quot;pirate_flag&quot;,&quot;🏴‍☠️&quot;),
+    ];
+}
+</code></pre>
+<a class="header" href="#answer-2" id="answer-2"><h1>Answer 2</h1></a>
+<blockquote>
+<p>Refactor <code>emoji-fzf</code> by adding an <code>args</code> module that contains a function
+<code>parse()</code>.</p>
+<p><code>parse()</code> should return a <code>Command</code> enum with variants that contain any
+argument data.</p>
+<p><code>main()</code> should use the <code>Command</code> from <code>parse()</code> to call the appropriate
+handler.</p>
+</blockquote>
+<pre><code class="language-rust ignore">extern crate clap;
+
+enum Command {
+    Get(String),
+    Preview,
+}
+
+fn main() {
+    let command = args::parse();
+
+    match command {
+        Command::Get(name) =&gt; display_emoji(&amp;name),
+        Command::Preview =&gt; preview_emojis(),
+    }
+}
+
+fn display_emoji(name: &amp;str) {
+    for emoji in emojis::EMOJIS {
+        if name == emoji.0 {
+            println!(&quot;{}&quot;, emoji.1);
+            std::process::exit(0);
+        }
+    }
+    std::process::exit(1);
+}
+
+fn preview_emojis() {
+    for emoji in emojis::EMOJIS {
+        println!(&quot;{}&quot;, emoji.0);
+    }
+}
+
+mod args {
+    use super::Command;
+
+    use clap::{crate_name, crate_description, crate_version, crate_authors};
+    use clap::{App, Arg, SubCommand};
+
+    pub(super) fn parse() -&gt; Command {
+        let matches = App::new(crate_name!())
+            .about(crate_description!())
+            .version(crate_version!())
+            .author(crate_authors!())
+            .subcommand(SubCommand::with_name(&quot;get&quot;)
+                        .about(&quot;Get unicode emoji given a name&quot;)
+                        .arg(Arg::with_name(&quot;name&quot;)
+                            .help(&quot;Name of the emoji to display&quot;)
+                            .index(1)
+                            .required(true)))
+            .subcommand(SubCommand::with_name(&quot;preview&quot;)
+                        .about(&quot;Display a list of all available emojis by name&quot;))
+            .get_matches();
+
+        match matches.subcommand() {
+            (&quot;get&quot;, Some(m)) =&gt; {
+                Command::Get(m.value_of(&quot;name&quot;).unwrap().to_string())
+            }
+            (&quot;preview&quot;, _) =&gt; {
+                Command::Preview
+            }
+            _ =&gt; std::process::exit(0),
+        }
+    }
+}
+
+mod emojis {
+    pub const EMOJIS: &amp;[(&amp;str, &amp;str)] = &amp;[
+        (&quot;grinning&quot;,&quot;😀&quot;),
+        (&quot;grimacing&quot;,&quot;😬&quot;),
+        // ...
+        (&quot;united_nations&quot;,&quot;🇺🇳&quot;),
+        (&quot;pirate_flag&quot;,&quot;🏴‍☠️&quot;),
+    ];
+}
+</code></pre>
+<a class="header" href="#today-4" id="today-4"><h1>Today</h1></a>
+<p>Let's review the original alias for <code>emoji-fzf</code>:</p>
+<pre><code class="language-bash">alias emoj=&quot;emoji-fzf preview | \
+    fzf --preview 'emoji-fzf get --name {1}' | \
+    cut -d \&quot; \&quot; -f 1 | \
+    emoji-fzf get&quot;
+</code></pre>
+<p>The <code>name</code> subcommand is done!</p>
+<p>We still need to implement the <code>preview</code> subcommand that is piped into <code>fzf</code>!</p>
+<a class="header" href="#the-preview-subcommand" id="the-preview-subcommand"><h1>The Preview Subcommand</h1></a>
+<p>As a refresher, this is the expected behavior of <code>preview</code>:</p>
+<pre><code class="language-sh">$ emoji-fzf preview
+grinning face smile happy joy :D grin
+grimacing face grimace teeth
+...
+united_nations un flag banner
+pirate_flag skull crossbones flag banner
+</code></pre>
+<p>The name of the emoji is printed, followed by a list of associated keywords, on
+the same line.</p>
+<a class="header" href="#introducing-serde-a-hrefhttpscratesiocratesserdeimg-srchttpsimgshieldsiocratesvserdesvg-altlatest-version-a" id="introducing-serde-a-hrefhttpscratesiocratesserdeimg-srchttpsimgshieldsiocratesvserdesvg-altlatest-version-a"><h1>Introducing <code>Serde</code> <a href="https://crates.io/crates/serde"><img src="https://img.shields.io/crates/v/serde.svg" alt="Latest Version" /></a></h1></a>
+<p><a href="https://serde.rs/"><code>Serde</code></a> is a framework for <strong>ser</strong>ializing
+and <strong>de</strong>serializing Rust data structures efficiently and
+generically.</p>
+<p><code>serde</code> supports a handful data formats out of the box including <a href="https://github.com/serde-rs/json">JSON</a>,
+<a href="https://github.com/pyfisch/cbor">CBOR</a>, <a href="https://github.com/dtolnay/serde-yaml">YAML</a>, <a href="https://github.com/alexcrichton/toml-rs">TOML</a>, <a href="https://github.com/nox/serde_urlencoded">x-www-form-urlencoded</a> and many
+more!</p>
+<p>Out of the box, <code>serde</code> can deserialize many common Rust data structures and
+primitive types like <code>String</code>, <code>{integer}</code>, <code>Vec&lt;T&gt;</code> and <code>HashMap&lt;K,V&gt;</code>.</p>
+<p>A derive attribute is provided to generate implementations for simple data
+structures.</p>
+<a class="header" href="#a-serde-example" id="a-serde-example"><h1>A Serde Example</h1></a>
+<pre><code class="language-rust ignore"># extern crate serde;
+use serde::{Serialize, Deserialize};
+
+#[derive(Serialize, Deserialize, Debug)]
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+fn main() {
+    let point = Point { x: 1, y: 2 };
+
+    // Convert the Point to a JSON string.
+    let serialized = serde_json::to_string(&amp;point).unwrap();
+
+    // Prints serialized = {&quot;x&quot;:1,&quot;y&quot;:2}
+    println!(&quot;serialized = {}&quot;, serialized);
+
+    // Convert the JSON string back to a Point.
+    let deserialized: Point = serde_json::from_str(&amp;serialized).unwrap();
+
+    // Prints deserialized = Point { x: 1, y: 2 }
+    println!(&quot;deserialized = {:?}&quot;, deserialized);
+}
+</code></pre>
+<a class="header" href="#mapping-emojisjson" id="mapping-emojisjson"><h1>Mapping Emojis.json</h1></a>
+<p>If you recall, <a href="https://github.com/muan/emojilib/blob/master/emojis.json">the original emoji file</a> we used looked something like this:</p>
+<pre><code class="language-json">{
+  &quot;grinning&quot;: {
+    &quot;keywords&quot;: [&quot;face&quot;, &quot;smile&quot;, &quot;happy&quot;, &quot;joy&quot;, &quot;:D&quot;, &quot;grin&quot;],
+    &quot;char&quot;: &quot;😀&quot;,
+    &quot;fitzpatrick_scale&quot;: false,
+    &quot;category&quot;: &quot;people&quot;
+  },
+  &quot;grimacing&quot;: {
+    &quot;keywords&quot;: [&quot;face&quot;, &quot;grimace&quot;, &quot;teeth&quot;],
+    &quot;char&quot;: &quot;😬&quot;,
+    &quot;fitzpatrick_scale&quot;: false,
+    &quot;category&quot;: &quot;people&quot;
+  },
+
+  ...
+}
+</code></pre>
+<p>We had to use <code>jq</code> and <code>sed</code> to extract a Rust data structure from the format...</p>
+<a class="header" href="#mapping-emojisjson-1" id="mapping-emojisjson-1"><h1>Mapping Emojis.json</h1></a>
+<p>With <code>serde</code>, we can map each JSON object to a Rust structure:</p>
+<pre><code class="language-json">{
+  &quot;grinning&quot;: {
+    &quot;keywords&quot;: [&quot;face&quot;, &quot;smile&quot;, &quot;happy&quot;, &quot;joy&quot;, &quot;:D&quot;, &quot;grin&quot;],
+    &quot;char&quot;: &quot;😀&quot;,
+    &quot;fitzpatrick_scale&quot;: false,
+    &quot;category&quot;: &quot;people&quot;
+  }
+}
+</code></pre>
+<p>Becomes...</p>
+<pre><code class="language-rust ignore">#[derive(Deserialize, Debug)]
+struct Emoji {
+    keywords: Vec&lt;String&gt;,
+    #[serde(rename = &quot;char&quot;)]
+    ch: String,
+    fitzpatrick_scale: bool,
+    category: String,
+}
+</code></pre>
+<a class="header" href="#assignments-for-next-time" id="assignments-for-next-time"><h1>Assignments for Next Time!</h1></a>
+<a class="header" href="#1-read-a-hrefhttpsgithubcommuanemojilibblobmasteremojisjsonemojisjsona-from-a-file-into-a-string" id="1-read-a-hrefhttpsgithubcommuanemojilibblobmasteremojisjsonemojisjsona-from-a-file-into-a-string"><h3>1. Read <a href="https://github.com/muan/emojilib/blob/master/emojis.json"><code>emojis.json</code></a> from a file into a <code>String</code>.</h3></a>
+<p><strong>Hint</strong>: There's a useful API called
+<a href="https://doc.rust-lang.org/std/fs/fn.read_to_string.html"><code>std::fs::read_to_string</code></a></p>
+<a class="header" href="#2-use-serde-to-deserialize-the-a-hrefhttpsgithubcommuanemojilibblobmasteremojisjsonemojisjsona-file-into-a-hashmap-of-emoji" id="2-use-serde-to-deserialize-the-a-hrefhttpsgithubcommuanemojilibblobmasteremojisjsonemojisjsona-file-into-a-hashmap-of-emoji"><h3>2. Use <code>serde</code> to deserialize the <a href="https://github.com/muan/emojilib/blob/master/emojis.json"><code>emojis.json</code></a> file into a <code>HashMap</code> of <code>Emoji</code>.</h3></a>
+<a class="header" href="#3-replace-the-const-emoji-array-with-the-emoji-hashmap-for-the-get-subcommand" id="3-replace-the-const-emoji-array-with-the-emoji-hashmap-for-the-get-subcommand"><h3>3. Replace the const emoji array with the emoji <code>HashMap</code> for the <code>get</code> subcommand.</h3></a>
+<a class="header" href="#4-properly-implement-the-preview-command-using-the-emoji-hashmap" id="4-properly-implement-the-preview-command-using-the-emoji-hashmap"><h3>4. Properly implement the <code>preview</code> command using the emoji <code>HashMap</code>.</h3></a>
+<a class="header" href="#rust-workshop-part-vi" id="rust-workshop-part-vi"><h1>Rust Workshop: Part VI</h1></a>
+<a class="header" href="#error-handling" id="error-handling"><h2>Error Handling</h2></a>
+<a class="header" href="#last-time-5" id="last-time-5"><h1>Last Time</h1></a>
+<ul>
+<li>The Standard Library</li>
+<li><code>Vec</code></li>
+<li><code>String</code></li>
+<li><code>HashMap</code></li>
+<li><code>emoji-fzf</code>: Part 4</li>
+</ul>
+<a class="header" href="#today-5" id="today-5"><h1>Today</h1></a>
+<ul>
+<li><code>panic!</code> and backtrace</li>
+<li><code>Result&lt;T, E&gt;</code></li>
+<li>When should you <code>panic!</code>?</li>
+<li><code>emoji-fzf</code>: Part 5</li>
+</ul>
+<a class="header" href="#quote-4" id="quote-4"><h1>Quote</h1></a>
+<blockquote>
+<p>Failure is not an OPTION&lt;T&gt;.</p>
+<p>It’s a Result&lt;T, E&gt;.</p>
+<p>— <a href="https://twitter.com/llogiq/status/956051804374134785">llogiq on Twitter</a></p>
+</blockquote>
+<a class="header" href="#introduction" id="introduction"><h1>Introduction</h1></a>
+<p>Rust groups errors into two major categories: <em>recoverable</em> and <em>unrecoverable</em>.</p>
+<p>Sometime operations, like opening a file, can fail at runtime. This is an
+example of an error that should be <em>recoverable</em>.</p>
+<p>Errors that are <em>unrecoverable</em> are the symptom of software bugs.</p>
+<p>In Rust:</p>
+<ul>
+<li><em>unrecoverable</em> errors: <code>panic!</code></li>
+<li><em>recoverable</em> errors: <code>Result&lt;T, E&gt;</code></li>
+</ul>
+<a class="header" href="#panic" id="panic"><h1><code>panic!</code></h1></a>
+<p>When a <code>panic!</code> occurs...</p>
+<ul>
+<li>A failure message will be printed</li>
+<li>The stack is unwound and cleaned up</li>
+<li>The program will quit</li>
+</ul>
+<p>When <em>optimizing for size</em>, we may just want to <em>abort</em> (end the program
+without cleaning up). This feature can be enabled in a <code>Cargo.toml</code>:</p>
+<pre><code class="language-toml">[profile.release]
+panic = 'abort'
+</code></pre>
+<p>A panic reports the file and line number of the <code>panic!</code> call:</p>
+<pre><pre class="playpen"><code class="language-rust should_panic panics">fn main() {
+    panic!(&quot;crash and burn&quot;);
+}
+</code></pre></pre>
+<p>A <code>panic!</code> can occur in a dependant crate...</p>
+<a class="header" href="#panic-backtrace" id="panic-backtrace"><h1><code>panic!</code> Backtrace</h1></a>
+<p>Take this example of a <a href="https://cwe.mitre.org/data/definitions/126.html"><em>buffer
+over-read</em></a>:</p>
+<pre><pre class="playpen"><code class="language-rust should_panic panics">fn main() {
+    let v = vec![1, 2, 3];
+
+    v[99];
+}
+</code></pre></pre>
+<p>In C, the compiler would <em>naively</em> allow you to fetch index 99 with no
+questions. This would be a security vulnerability that could be exploited.</p>
+<p>In Rust, this triggers a <code>panic!</code> in the Standard Library.</p>
+<p>We can set the <code>RUST_BACKTRACE</code> environment variable to uncover the source of
+the <code>panic!</code>.</p>
+<a class="header" href="#panic-backtrace-1" id="panic-backtrace-1"><h1><code>panic!</code> Backtrace</h1></a>
+<p>When working with <code>cargo</code>, it is common to run a command like below:</p>
+<pre><code class="language-sh">$ RUST_BACKTRACE=1 cargo run
+</code></pre>
+<p>Let's print the backtrace:</p>
+<pre><pre class="playpen"><code class="language-rust should_panic panics">fn main() {
+#     std::env::set_var(&quot;RUST_BACKTRACE&quot;, &quot;1&quot;);
+    let v = vec![1, 2, 3];
+
+    v[99];
+}
+</code></pre></pre>
+<p>The informative output here is provided by debug symbols that are compiled into
+binaries by default.</p>
+<a class="header" href="#result" id="result"><h1><code>Result</code></h1></a>
+<p>In C, there are a variety of different recoverable error handling techniques:</p>
+<ul>
+<li>None: Ignore errors with <code>void</code> returns</li>
+<li>Binary: <code>bool</code> or <code>int</code> 0 on success failure otherwise</li>
+<li>Status code: <code>int</code> 0 or a status code integer</li>
+<li>Overloaded status code: 0 on success, status code if less than 0, meaningful
+unsigned integer return if greater than zero</li>
+<li>Robust: Error are pointers to structures (heap allocated) with associated
+debugging data</li>
+<li>Or even a combination of above!</li>
+</ul>
+<p>In Rust, there is a <a href="https://doc.rust-lang.org/core/result/"><code>core</code> (ubiquitous) type</a> for functions that can fail:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+enum Result&lt;T, E&gt; {
+    Ok(T),
+    Err(E),
+}
+#}</code></pre></pre>
+<p>We say: <code>Result&lt;T, E&gt;</code> is an enum with two variants <code>Ok</code> and <code>Err</code>. Both <code>T</code>
+and <code>E</code> are <em>generic type parameters</em> (like <code>Option&lt;T&gt;</code>).</p>
+<p><code>T</code> represents the type that will be returned in the success case and <code>E</code>
+represents the error type that will returned in the failure case.</p>
+<a class="header" href="#using-result" id="using-result"><h1>Using <code>Result</code></h1></a>
+<p>When you open a <code>File</code>, a <code>Result</code>  is returned:</p>
+<pre><pre class="playpen"><code class="language-rust">use std::fs::File;
+
+fn main() {
+    let f = File::open(&quot;emojis.json&quot;);
+}
+</code></pre></pre>
+<p>But, what are the types <code>T</code> and <code>E</code>?</p>
+<pre><pre class="playpen"><code class="language-rust editable">use std::fs::File;
+
+fn main() {
+    // Uncomment below!
+    // let f: () = File::open(&quot;emojis.json&quot;);
+}
+</code></pre></pre>
+<a class="header" href="#matching-result" id="matching-result"><h1>Matching <code>Result</code></h1></a>
+<p>To extract <code>T</code>, in this case <code>File</code>, from <code>Result</code>, we can use a match statement:</p>
+<pre><pre class="playpen"><code class="language-rust should_panic">use std::fs::File;
+
+fn main() {
+    let f = File::open(&quot;emojis.json&quot;);
+
+    let _f = match f {
+        Ok(file) =&gt; file,
+        Err(error) =&gt; {
+            panic!(&quot;There was a problem opening the file: {:?}&quot;, error)
+        },
+    };
+}
+</code></pre></pre>
+<p>On success, we return the concrete <code>File</code> type. Otherwise, we panic.</p>
+<a class="header" href="#matching-result-errors" id="matching-result-errors"><h1>Matching <code>Result</code> Errors</h1></a>
+<p>What if we want to handle some errors differently?</p>
+<p>Since the type of <code>E</code> is a struct <code>io::Error</code> that has a <code>kind</code> method that
+returns an <code>io::ErrorKind</code> enum, we can add another <code>match</code> statement:</p>
+<pre><pre class="playpen"><code class="language-rust no_run">use std::fs::File;
+use std::io::ErrorKind;
+
+fn main() {
+    let f = File::open(&quot;emojis.json&quot;);
+
+    let _f = match f {
+        Ok(file) =&gt; file,
+        Err(error) =&gt; match error.kind() {
+            ErrorKind::NotFound =&gt; match File::create(&quot;emojis.json&quot;) {
+                Ok(fc) =&gt; fc,
+                Err(e) =&gt; panic!(&quot;Tried to create file but there was a problem: {:?}&quot;, e),
+            },
+            other_error =&gt; panic!(&quot;There was a problem opening the file: {:?}&quot;, other_error),
+        },
+    };
+}
+</code></pre></pre>
+<p>If the file is not found, we can handle the error and create it.</p>
+<a class="header" href="#matching-result-errors-1" id="matching-result-errors-1"><h1>Matching <code>Result</code> Errors</h1></a>
+<p><code>match</code>ing is quite powerful, but also primitive. <code>Result</code> provides many
+methods, like <a href="https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err"><code>map_err</code></a>, that accept closures instead:</p>
+<pre><pre class="playpen"><code class="language-rust no_run">use std::fs::File;
+use std::io::ErrorKind;
+
+fn main() {
+    let f = File::open(&quot;emojis.json&quot;).map_err(|error| {
+        if error.kind() == ErrorKind::NotFound {
+            File::create(&quot;emojis.json&quot;).unwrap_or_else(|error| {
+                panic!(&quot;Tried to create file but there was a problem: {:?}&quot;, error);
+            })
+        } else {
+            panic!(&quot;There was a problem opening the file: {:?}&quot;, error);
+        }
+    });
+}
+</code></pre></pre>
+<p>The functionality above is identical to the double <code>match</code> we just saw.</p>
+<p><a href="https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err"><code>map_err</code></a> 'handles' the error, but leaves successful results
+untouched.</p>
+<p>This form is seen more often in the wild. We'll revisit this when we talk about
+closures.</p>
+<a class="header" href="#shortcuts-for-panic-unwrap" id="shortcuts-for-panic-unwrap"><h1>Shortcuts for <code>panic!</code>: <code>unwrap</code></h1></a>
+<p>Previously, we've used match to <code>panic!</code> on error:</p>
+<pre><pre class="playpen"><code class="language-rust should_panic">use std::fs::File;
+
+fn main() {
+    let f = File::open(&quot;emojis.json&quot;);
+
+    let _f = match f {
+        Ok(file) =&gt; file,
+        Err(_) =&gt; panic!(),
+    };
+}
+</code></pre></pre>
+<p>We seen this before! In more detail, <code>unwrap</code> is a method of <code>Result</code> (also
+available with <code>Option</code>) that can help here:</p>
+<pre><pre class="playpen"><code class="language-rust should_panic">use std::fs::File;
+
+fn main() {
+    let _f = File::open(&quot;emojis.json&quot;).unwrap();
+}
+</code></pre></pre>
+<p><code>unwrap</code> is shorthand for &quot;give me <code>T</code> or <code>panic!</code>&quot;.</p>
+<p>This is most useful in early prototyping situations.</p>
+<a class="header" href="#shortcuts-for-panic-expect" id="shortcuts-for-panic-expect"><h1>Shortcuts for <code>panic!</code>: <code>expect</code></h1></a>
+<p>We've also seen <code>panic!</code> on error with a message:</p>
+<pre><pre class="playpen"><code class="language-rust should_panic">use std::fs::File;
+
+fn main() {
+    let f = File::open(&quot;emojis.json&quot;);
+
+    let _f = match f {
+        Ok(file) =&gt; file,
+        Err(error) =&gt; panic!(&quot;There was a problem opening the file: {:?}&quot;, error),
+    };
+}
+</code></pre></pre>
+<p>The <code>expect</code> method of <code>Result</code> (also available with <code>Option</code>) that can help here:</p>
+<pre><pre class="playpen"><code class="language-rust should_panic">use std::fs::File;
+
+fn main() {
+    let _f = File::open(&quot;emojis.json&quot;).expect(&quot;Failed to open emojis.json&quot;);
+}
+</code></pre></pre>
+<p><code>expect</code> is shorthand for &quot;give me <code>T</code> or <code>panic!</code> with a message&quot;.</p>
+<p>This is useful in situations when we would like more information about where a
+panic is in the code.</p>
+<a class="header" href="#propagating-errors" id="propagating-errors"><h1>Propagating Errors</h1></a>
+<p>Often, we want to return errors from functions:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::io;
+use std::io::Read;
+use std::fs::File;
+
+fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
+    let f = File::open(&quot;emoji.json&quot;);
+
+    let mut f = match f {
+        Ok(file) =&gt; file,
+        Err(e) =&gt; return Err(e),
+    };
+
+    let mut s = String::new();
+
+    match f.read_to_string(&amp;mut s) {
+        Ok(_) =&gt; Ok(s),
+        Err(e) =&gt; Err(e),
+    }
+}
+#}</code></pre></pre>
+<p>Above, we have to explicitly handle each error with a <code>match</code>.</p>
+<p>Although this may feel similar to C, it's a practice that can become quite
+verbose over time...</p>
+<a class="header" href="#propagating-errors-1" id="propagating-errors-1"><h1>Propagating Errors</h1></a>
+<p>Over time, it was discovered that propagating errors up was <em>so common</em> that
+Rust provides the <code>?</code> operator to make this easier.</p>
+<p>Here's the last example simplified:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::io;
+use std::io::Read;
+use std::fs::File;
+
+fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
+    let mut f = File::open(&quot;emojis.json&quot;)?;
+    let mut s = String::new();
+    f.read_to_string(&amp;mut s)?;
+    Ok(s)
+}
+#}</code></pre></pre>
+<p><code>?</code> works almost identically to the <code>match</code> statements we had previously. It
+produces <code>T</code> on success or early returns <code>E</code>.</p>
+<p>The difference between the two is that <code>?</code> uses the <code>from</code> function, defined in
+the <a href="https://doc.rust-lang.org/std/convert/trait.From.html"><code>From</code> trait</a>, to convert errors when returning <code>E</code>.</p>
+<a class="header" href="#propagating-errors-2" id="propagating-errors-2"><h1>Propagating Errors</h1></a>
+<p>In fact, we can chain <code>?</code> operators together:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::io;
+use std::io::Read;
+use std::fs::File;
+
+fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
+    let mut s = String::new();
+
+    File::open(&quot;emojis.json&quot;)?.read_to_string(&amp;mut s)?;
+
+    Ok(s)
+}
+#}</code></pre></pre>
+<p>Reading a file to a <code>String</code> is so common, there's a function for it
+<code>fs::read_to_string</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::io;
+use std::fs;
+
+fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
+    fs::read_to_string(&quot;emojis.json&quot;)
+}
+#}</code></pre></pre>
+<a class="header" href="#the--operator" id="the--operator"><h1>The <code>?</code> Operator</h1></a>
+<p>There are a few more things to note about <code>?</code>:</p>
+<p><code>?</code> can be used with types other than <code>Result</code> if they implement the trait
+<a href="https://doc.rust-lang.org/std/ops/trait.Try.html">std::ops::Try</a>, like <code>Option</code>.</p>
+<p>Can we use the <code>?</code> in our main function?</p>
+<pre><pre class="playpen"><code class="language-rust editable">use std::fs::File;
+
+fn main() {
+    // Uncomment below!
+    // let _f = File::open(&quot;emojis.json&quot;)?;
+}
+</code></pre></pre>
+<a class="header" href="#the--operator-1" id="the--operator-1"><h1>The <code>?</code> Operator</h1></a>
+<p>We can specify a <code>Result</code> return in our main function to use the <code>?</code> operator:</p>
+<pre><pre class="playpen"><code class="language-rust should_panic">use std::error::Error;
+use std::fs::File;
+
+fn main() -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+    let _f = File::open(&quot;emojis.json&quot;)?;
+
+    Ok(())
+}
+</code></pre></pre>
+<p><code>Box&lt;dyn Error&gt;</code> is something called a <em>trait object</em>. For now, this means any
+kind of error. More on this later!</p>
+<a class="header" href="#to-panic-or-not-to-panic" id="to-panic-or-not-to-panic"><h1>To <code>panic!</code> or Not to <code>panic!</code></h1></a>
+<p>Sometimes, it is ok to <code>panic!</code>:</p>
+<ul>
+<li>Examples, prototypes, tests</li>
+<li>When you have more information than the compiler:
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::net::IpAddr;
+
+let home: IpAddr = &quot;127.0.0.1&quot;.parse().unwrap();
+#}</code></pre></pre>
+</li>
+<li>Your binary will end up in an unrecoverable bad state</li>
+<li>Your library is being misused and the calling programmers need to fix their code</li>
+</ul>
+<p>In all other cases, it is preferable to return a <code>Result</code>.</p>
+<a class="header" href="#emoji-fzf-part-5" id="emoji-fzf-part-5"><h1><code>emoji-fzf</code>: Part 5</h1></a>
+<p><img src="https://cdn.rawgit.com/noahp/emoji-fzf/assets/demo.svg"></p>
+<a class="header" href="#last-time-6" id="last-time-6"><h1>Last Time</h1></a>
+<p>We left off <a href="https://github.com/mvertescher/emoji-fzf/tree/7b63ebd3f26fc2859da86d53b99c04c99da39d25">here</a>...</p>
+<pre><code class="language-rust ignore">extern crate clap;
+
+enum Command {
+    Get(String),
+    Preview,
+}
+
+fn main() {
+    let command = args::parse();
+
+    match command {
+        Command::Get(name) =&gt; display_emoji(&amp;name),
+        Command::Preview =&gt; preview_emojis(),
+    }
+}
+
+fn display_emoji(name: &amp;str) {
+    for emoji in emojis::EMOJIS {
+        if name == emoji.0 {
+            println!(&quot;{}&quot;, emoji.1);
+            std::process::exit(0);
+        }
+    }
+    std::process::exit(1);
+}
+
+fn preview_emojis() {
+    for emoji in emojis::EMOJIS {
+        println!(&quot;{}&quot;, emoji.0);
+    }
+}
+
+mod args {
+    use super::Command;
+
+    use clap::{crate_name, crate_description, crate_version, crate_authors};
+    use clap::{App, Arg, SubCommand};
+
+    pub(super) fn parse() -&gt; Command {
+        let matches = App::new(crate_name!())
+            .about(crate_description!())
+            .version(crate_version!())
+            .author(crate_authors!())
+            .subcommand(SubCommand::with_name(&quot;get&quot;)
+                        .about(&quot;Get unicode emoji given a name&quot;)
+                        .arg(Arg::with_name(&quot;name&quot;)
+                            .help(&quot;Name of the emoji to display&quot;)
+                            .index(1)
+                            .required(true)))
+            .subcommand(SubCommand::with_name(&quot;preview&quot;)
+                        .about(&quot;Display a list of all available emojis by name&quot;))
+            .get_matches();
+
+        match matches.subcommand() {
+            (&quot;get&quot;, Some(m)) =&gt; {
+                Command::Get(m.value_of(&quot;name&quot;).unwrap().to_string())
+            }
+            (&quot;preview&quot;, _) =&gt; {
+                Command::Preview
+            }
+            _ =&gt; std::process::exit(0),
+        }
+    }
+}
+
+mod emojis {
+    pub const EMOJIS: &amp;[(&amp;str, &amp;str)] = &amp;[
+        (&quot;grinning&quot;,&quot;😀&quot;),
+        (&quot;grimacing&quot;,&quot;😬&quot;),
+        // ...
+        (&quot;united_nations&quot;,&quot;🇺🇳&quot;),
+        (&quot;pirate_flag&quot;,&quot;🏴‍☠️&quot;),
+    ];
+}
+</code></pre>
+<a class="header" href="#assignment-1-1" id="assignment-1-1"><h1>Assignment 1</h1></a>
+<blockquote>
+<p>Read <a href="https://github.com/muan/emojilib/blob/master/emojis.json"><code>emojis.json</code></a> from a file into a <code>String</code>.</p>
+<p><strong>Hint</strong>: There's a useful API called <a href="(https://doc.rust-lang.org/std/fs/fn.read_to_string.html)"><code>std::fs::read_to_string</code></a></p>
+</blockquote>
+<a class="header" href="#answer-1-1" id="answer-1-1"><h1>Answer 1</h1></a>
+<blockquote>
+<p>Read <a href="https://github.com/muan/emojilib/blob/master/emojis.json"><code>emojis.json</code></a> from a file into a <code>String</code>.</p>
+<p><strong>Hint</strong>: There's a useful API called <a href="(https://doc.rust-lang.org/std/fs/fn.read_to_string.html)"><code>std::fs::read_to_string</code></a></p>
+</blockquote>
+<a class="header" href="#assignment-2-1" id="assignment-2-1"><h1>Assignment 2</h1></a>
+<blockquote>
+<p>Use <code>serde</code> to deserialize the <a href="https://github.com/muan/emojilib/blob/master/emojis.json"><code>emojis.json</code></a> file into a
+<code>HashMap</code> of <code>Emoji</code>.</p>
+</blockquote>
+<a class="header" href="#answer-2-1" id="answer-2-1"><h1>Answer 2</h1></a>
+<blockquote>
+<p>Use <code>serde</code> to deserialize the <a href="https://github.com/muan/emojilib/blob/master/emojis.json"><code>emojis.json</code></a> file into a
+<code>HashMap</code> of <code>Emoji</code>.</p>
+</blockquote>
+<a class="header" href="#assignment-3" id="assignment-3"><h1>Assignment 3</h1></a>
+<blockquote>
+<p>Replace the const emoji array with the emoji <code>HashMap</code> for the <code>get</code>
+subcommand.</p>
+</blockquote>
+<a class="header" href="#answer-3" id="answer-3"><h1>Answer 3</h1></a>
+<blockquote>
+<p>Replace the const emoji array with the emoji <code>HashMap</code> for the <code>get</code>
+subcommand.</p>
+</blockquote>
+<a class="header" href="#assignment-4" id="assignment-4"><h1>Assignment 4</h1></a>
+<blockquote>
+<p>Properly implement the <code>preview</code> command using the emoji <code>HashMap</code>.</p>
+</blockquote>
+<a class="header" href="#answer-4" id="answer-4"><h1>Answer 4</h1></a>
+<blockquote>
+<p>Properly implement the <code>preview</code> command using the emoji <code>HashMap</code>.</p>
+</blockquote>
+<a class="header" href="#assignments-for-next-time-1" id="assignments-for-next-time-1"><h1>Assignments for Next Time!</h1></a>
+<a class="header" href="#1-use-result-boxdyn-error-to-provide-graceful-exits-in-emoji-fzf" id="1-use-result-boxdyn-error-to-provide-graceful-exits-in-emoji-fzf"><h3>1. Use <code>Result&lt;(), Box&lt;dyn Error&gt;&gt;</code> to provide graceful exits in <code>emoji-fzf</code></h3></a>
+<a class="header" href="#rust-workshop-part-vii" id="rust-workshop-part-vii"><h1>Rust Workshop: Part VII</h1></a>
+<a class="header" href="#generics" id="generics"><h2>Generics</h2></a>
+<a class="header" href="#last-time-7" id="last-time-7"><h1>Last Time</h1></a>
+<ul>
+<li><code>panic!</code> and backtrace</li>
+<li><code>Result&lt;T, E&gt;</code></li>
+<li>When should you <code>panic!</code>?</li>
+<li><code>emoji-fzf</code>: Part 5</li>
+</ul>
+<a class="header" href="#today-6" id="today-6"><h1>Today</h1></a>
+<ul>
+<li>Introduction</li>
+<li>What are generic data types?</li>
+<li>Syntax
+<ul>
+<li>Functions</li>
+<li>Structs</li>
+<li>Enums</li>
+<li>Methods</li>
+</ul>
+</li>
+<li>Performance of generics</li>
+<li>Workshop</li>
+</ul>
+<a class="header" href="#quote-5" id="quote-5"><h1>Quote</h1></a>
+<blockquote>
+<p>once you can walk barefoot (C), it’s easy to learn to walk with shoes (go)
+but it will take time to learn to ride a bike (rust)</p>
+</blockquote>
+<p>— <a href="https://www.reddit.com/r/rust/comments/6srf8h/thoughts_from_a_dumb_person_notes_on_my_threeweek/dlf58jt/">/u/freakhill on Reddit</a></p>
+<a class="header" href="#introduction-1" id="introduction-1"><h1>Introduction</h1></a>
+<p><em>Generics</em> are abstract stand-ins for concrete types or other properties.</p>
+<p>They help us effectively handle the duplication of concepts.</p>
+<p>There are three generics related concepts in Rust that are important:</p>
+<ul>
+<li><em>Generic data types</em>: An abstract type that expresses ranges for concrete
+types.</li>
+<li><em>Traits</em>: Used to define behavior in a generic way.</li>
+<li><em>Lifetimes</em>: A variety of generics that gives the compiler information about
+how references relate to one another.</li>
+</ul>
+<p>Today, we're just going to focus on the syntax and use of <em>generic data types</em>.</p>
+<a class="header" href="#removing-duplication" id="removing-duplication"><h1>Removing Duplication</h1></a>
+<p>Consider this example that finds the largest number in a <code>Vec</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    let number_list = vec![34, 50, 25, 100, 65];
+
+    let mut largest = number_list[0];
+
+    for number in number_list {
+        if number &gt; largest {
+            largest = number;
+        }
+    }
+
+    println!(&quot;The largest number is {}&quot;, largest);
+
+    let number_list = vec![102, 34, 6000, 89, 54, 2, 43, 8];
+
+    let mut largest = number_list[0];
+
+    for number in number_list {
+        if number &gt; largest {
+            largest = number;
+        }
+    }
+
+    println!(&quot;The largest number is {}&quot;, largest);
+}
+</code></pre></pre>
+<p>There's some duplication here, we can simplify this code...</p>
+<a class="header" href="#removing-duplication-1" id="removing-duplication-1"><h1>Removing Duplication</h1></a>
+<p>We can extract out a function for finding the largest value in a list:</p>
+<pre><pre class="playpen"><code class="language-rust">fn largest(list: &amp;[i32]) -&gt; i32 {
+    let mut largest = list[0];
+
+    for &amp;item in list.iter() {
+        if item &gt; largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+
+fn main() {
+    let number_list = vec![34, 50, 25, 100, 65];
+
+    let result = largest(&amp;number_list);
+    println!(&quot;The largest number is {}&quot;, result);
+
+    let number_list = vec![102, 34, 6000, 89, 54, 2, 43, 8];
+
+    let result = largest(&amp;number_list);
+    println!(&quot;The largest number is {}&quot;, result);
+}
+</code></pre></pre>
+<p>Much better!</p>
+<a class="header" href="#removing-duplication-2" id="removing-duplication-2"><h1>Removing Duplication</h1></a>
+<p>But, what happens when we want to find the largest value in lists of two
+<em>different</em> types.</p>
+<p>We need two different functions:</p>
+<pre><pre class="playpen"><code class="language-rust">fn largest_i32(list: &amp;[i32]) -&gt; i32 {
+    let mut largest = list[0];
+
+    for &amp;item in list.iter() {
+        if item &gt; largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+
+fn largest_char(list: &amp;[char]) -&gt; char {
+    let mut largest = list[0];
+
+    for &amp;item in list.iter() {
+        if item &gt; largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+
+fn main() {
+    let number_list = vec![34, 50, 25, 100, 65];
+
+    let result = largest_i32(&amp;number_list);
+    println!(&quot;The largest number is {}&quot;, result);
+
+    let char_list = vec!['y', 'm', 'a', 'q'];
+
+    let result = largest_char(&amp;char_list);
+    println!(&quot;The largest char is {}&quot;, result);
+}
+</code></pre></pre>
+<p>Not great! It <em>feels</em> like were duplicating code again!</p>
+<a class="header" href="#removing-duplication-3" id="removing-duplication-3"><h1>Removing Duplication</h1></a>
+<p>We can further reduce duplication by creating a <em>generic type parameter</em> for
+the type of the array.</p>
+<p>The type parameter <code>T</code> must be declared before use: <code>fn largest&lt;T&gt;</code>.</p>
+<p>Now we can define a single <code>largest</code> function:</p>
+<pre><code class="language-rust ignore">fn largest&lt;T&gt;(list: &amp;[T]) -&gt; T {
+    let mut largest = list[0];
+
+    for &amp;item in list.iter() {
+        if item &gt; largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+
+fn main() {
+    let number_list = vec![34, 50, 25, 100, 65];
+
+    let result = largest(&amp;number_list);
+    println!(&quot;The largest number is {}&quot;, result);
+
+    let char_list = vec!['y', 'm', 'a', 'q'];
+
+    let result = largest(&amp;char_list);
+    println!(&quot;The largest char is {}&quot;, result);
+}
+</code></pre>
+<p>Unfortunately, this does not compile...</p>
+<pre><code class="language-plaintext">error[E0369]: binary operation `&gt;` cannot be applied to type `T`
+ --&gt; src/main.rs:5:12
+  |
+5 |         if item &gt; largest {
+  |            ^^^^^^^^^^^^^^
+  |
+  = note: `T` might need a bound for `std::cmp::PartialOrd`
+</code></pre>
+<p>The compiler is telling us that <code>&gt;</code> may <em>not</em> work for all types <code>T</code>.</p>
+<p>We need to introduce <em>traits</em> to solve this problem. Stay tuned!</p>
+<a class="header" href="#generic-structs" id="generic-structs"><h1>Generic Structs</h1></a>
+<p>When declaring structs with generic parameters, we must declare them after the
+struct name inside angled brackets:</p>
+<pre><pre class="playpen"><code class="language-rust">struct Point&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+fn main() {
+    let integer = Point { x: 5, y: 10 };
+    let float = Point { x: 1.0, y: 4.0 };
+}
+</code></pre></pre>
+<p><code>Point&lt;T&gt;</code> holds <code>x</code> and <code>y</code> values both of type <code>T</code>.</p>
+<a class="header" href="#generic-structs-1" id="generic-structs-1"><h1>Generic Structs</h1></a>
+<p>What happens if we create a point with <code>x</code> and <code>y</code> as different types?</p>
+<pre><code class="language-rust ignore">struct Point&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+fn main() {
+    let wont_work = Point { x: 5, y: 4.0 };
+}
+</code></pre>
+<pre><code class="language-plaintext">error[E0308]: mismatched types
+ --&gt; src/main.rs:7:38
+  |
+7 |     let wont_work = Point { x: 5, y: 4.0 };
+  |                                      ^^^ expected integer, found floating-point number
+  |
+  = note: expected type `{integer}`
+             found type `{float}`
+</code></pre>
+<p>Remember that a <code>T</code> must be a single known type at compile time.</p>
+<a class="header" href="#generic-structs-2" id="generic-structs-2"><h1>Generic Structs</h1></a>
+<p>Luckily, we can fix this by adding another type parameter:</p>
+<pre><pre class="playpen"><code class="language-rust">struct Point&lt;T, U&gt; {
+    x: T,
+    y: U,
+}
+
+fn main() {
+    let both_integer = Point { x: 5, y: 10 };
+    let both_float = Point { x: 1.0, y: 4.0 };
+    let integer_and_float = Point { x: 5, y: 4.0 };
+}
+</code></pre></pre>
+<p><code>x</code> and <code>y</code> can now be the same or different types.</p>
+<a class="header" href="#generic-enums" id="generic-enums"><h1>Generic Enums</h1></a>
+<p>We've seen two generic enums already:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+enum Option&lt;T&gt; {
+    Some(T),
+    None,
+}
+#}</code></pre></pre>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+enum Result&lt;T, E&gt; {
+    Ok(T),
+    Err(E),
+}
+#}</code></pre></pre>
+<p>For both these cases, <code>T</code> and <code>E</code> can be <em>any</em> type.</p>
+<p>Note that many different <code>Option</code>s or <code>Result</code>s can exist. Generics help remove
+duplication.</p>
+<a class="header" href="#generic-methods" id="generic-methods"><h1>Generic Methods</h1></a>
+<p>We can implement methods on structs and enums using generic types:</p>
+<pre><pre class="playpen"><code class="language-rust">struct Point&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+impl&lt;T&gt; Point&lt;T&gt; {
+    fn x(&amp;self) -&gt; &amp;T {
+        &amp;self.x
+    }
+}
+
+fn main() {
+    let p = Point { x: 5, y: 10 };
+
+    println!(&quot;p.x = {}&quot;, p.x());
+}
+</code></pre></pre>
+<p>Note that we have to declare <code>T</code> right after <code>impl</code> so we can use it to specify
+that we're implementing methods on the type <code>Point&lt;T&gt;</code>.</p>
+<p>By declaring <code>T</code> as generic type after <code>impl</code>, the compiler can identify that
+the type in the angle brackets in <code>Point</code> is a generic type rather than a
+concrete type.</p>
+<a class="header" href="#generic-methods-1" id="generic-methods-1"><h1>Generic Methods</h1></a>
+<p>We could implement methods only on <code>Point&lt;f32&gt;</code> instances rather than on
+<code>Point&lt;T&gt;</code> instances with any generic type.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+# struct Point&lt;T&gt; {
+#     x: T,
+#     y: T,
+# }
+impl Point&lt;f32&gt; {
+    fn distance_from_origin(&amp;self) -&gt; f32 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+#}</code></pre></pre>
+<a class="header" href="#generic-methods-2" id="generic-methods-2"><h1>Generic Methods</h1></a>
+<p>Generic type parameters in struct definitions are <em>not</em> always the same as
+those used in method signatures.</p>
+<p>Below, <code>Point&lt;T, U&gt;</code> has a method <code>mixup</code> that declares two new generic type
+parameters <code>V</code> and <code>W</code>.</p>
+<pre><pre class="playpen"><code class="language-rust editable">struct Point&lt;T, U&gt; {
+    x: T,
+    y: U,
+}
+
+impl&lt;T, U&gt; Point&lt;T, U&gt; {
+    fn mixup&lt;V, W&gt;(self, other: Point&lt;V, W&gt;) -&gt; Point&lt;T, W&gt; {
+        Point {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
+
+fn main() {
+    let p1 = Point { x: 5, y: 10.4 };
+    let p2 = Point { x: &quot;Hello&quot;, y: 'c'};
+
+    let p3 = p1.mixup(p2);
+
+    println!(&quot;p3.x = {}, p3.y = {}&quot;, p3.x, p3.y);
+}
+</code></pre></pre>
+<a class="header" href="#performance" id="performance"><h1>Performance</h1></a>
+<p>In Rust, the implementation of generics is optimised for performance.</p>
+<p>There is no dynamic runtime cost. Code using generics is no slower that it
+would be using concrete types.</p>
+<p>Rust accomplishes this by performing <em>monomorphization</em> of code that is using
+generics at compile time.</p>
+<blockquote>
+<p><em>Monomorphization</em> is the process of turning generic code into specific code
+by filling in the concrete that are used when compiled.</p>
+</blockquote>
+<p>In other words,</p>
+<blockquote>
+<p><em>Monomorphization</em> is the conversion from polymorphic to monomorphic code.</p>
+</blockquote>
+<p>This process is similar to the way C++ templates compile.</p>
+<a class="header" href="#performance-1" id="performance-1"><h1>Performance</h1></a>
+<p>Let's look at an example of two different concrete types:
+<code>Option&lt;i32&gt;</code> and <code>Option&lt;f64&gt;</code>.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let integer = Some(5);
+let float = Some(5.0);
+#}</code></pre></pre>
+<p>The Rust compiler performs <em>monomorphization</em> on the code above to something
+like below.</p>
+<pre><pre class="playpen"><code class="language-rust">enum Option_i32 {
+    Some(i32),
+    None,
+}
+
+enum Option_f64 {
+    Some(f64),
+    None,
+}
+
+fn main() {
+    let integer = Option_i32::Some(5);
+    let float = Option_f64::Some(5.0);
+}
+</code></pre></pre>
+<p>There is no runtime cost! This code is compiled <em>exactly</em> as if we created two
+separate definitions.</p>
+<a class="header" href="#workshop" id="workshop"><h1>Workshop</h1></a>
+<p>We going to dive a little deeper into generics!</p>
+<a class="header" href="#question-1" id="question-1"><h1>Question 1</h1></a>
+<p>Does this compile?</p>
+<pre><code class="language-rust ignore">struct Foo;
+struct Bar&lt;T&gt;(T);
+
+impl Bar&lt;Foo&gt; {
+    fn name_foo(&amp;self) {
+        println!(&quot;Bar&lt;Foo&gt;&quot;);
+    }
+}
+
+impl Bar&lt;T&gt; {
+    fn name_t(&amp;self) {
+        println!(&quot;Bar&lt;T&gt;&quot;);
+    }
+}
+</code></pre>
+<a class="header" href="#answer-1-2" id="answer-1-2"><h1>Answer 1</h1></a>
+<p>No! We missed the type parameter declaration <code>&lt;T&gt;</code> after <code>impl</code> when declaring
+the <code>impl</code> block for <code>Bar&lt;T&gt;</code>.</p>
+<pre><pre class="playpen"><code class="language-rust editable">struct Foo;
+struct Bar&lt;T&gt;(T);
+
+impl Bar&lt;Foo&gt; {
+    fn name_foo(&amp;self) {
+        println!(&quot;Bar&lt;Foo&gt;&quot;);
+    }
+}
+
+// BAD: impl Bar&lt;T&gt; {
+impl&lt;T&gt; Bar&lt;T&gt; {
+    fn name_t(&amp;self) {
+        println!(&quot;Bar&lt;T&gt;&quot;);
+    }
+}
+
+fn main() {}
+</code></pre></pre>
+<p>The complier expected <code>T</code> to be a concrete type instead of a generic type
+parameter!</p>
+<a class="header" href="#question-2" id="question-2"><h1>Question 2</h1></a>
+<p>Does this compile? If so, what is printed?</p>
+<pre><code class="language-rust ignore">struct Foo;
+struct Bar&lt;T&gt;(T);
+
+impl Bar&lt;Foo&gt; {
+    fn name_foo(&amp;self) {
+        println!(&quot;Bar&lt;Foo&gt;&quot;);
+    }
+}
+
+impl&lt;T&gt; Bar&lt;T&gt; {
+    fn name_t(&amp;self) {
+        println!(&quot;Bar&lt;T&gt;&quot;);
+    }
+}
+
+fn main() {
+    let x = Bar(Foo);
+    let y = Bar(10);
+    let z = Bar(&quot;foo&quot;);
+
+    x.name_foo();
+    y.name_t();
+    z.name_t();
+}
+</code></pre>
+<a class="header" href="#answer-2-2" id="answer-2-2"><h1>Answer 2</h1></a>
+<p>Yes!</p>
+<pre><pre class="playpen"><code class="language-rust">struct Foo;
+struct Bar&lt;T&gt;(T);
+
+impl Bar&lt;Foo&gt; {
+    fn name_foo(&amp;self) {
+        println!(&quot;Bar&lt;Foo&gt;&quot;);
+    }
+}
+
+impl&lt;T&gt; Bar&lt;T&gt; {
+    fn name_t(&amp;self) {
+        println!(&quot;Bar&lt;T&gt;&quot;);
+    }
+}
+
+fn main() {
+    let x = Bar(Foo);
+    let y = Bar(10);
+    let z = Bar(&quot;foo&quot;);
+
+    x.name_foo();
+    y.name_t();
+    z.name_t();
+}
+</code></pre></pre>
+<a class="header" href="#question-3" id="question-3"><h1>Question 3</h1></a>
+<p>Does this compile? If so, what is printed?</p>
+<pre><code class="language-rust ignore">struct Foo;
+struct Bar&lt;T&gt;(T);
+
+impl Bar&lt;Foo&gt; {
+    fn name(&amp;self) {
+        println!(&quot;Bar&lt;Foo&gt;&quot;);
+    }
+}
+
+impl&lt;T&gt; Bar&lt;T&gt; {
+    fn name(&amp;self) {
+        println!(&quot;Bar&lt;T&gt;&quot;);
+    }
+}
+
+fn main() {
+    let x = Bar(Foo);
+    let y = Bar(10);
+    let z = Bar(&quot;foo&quot;);
+
+    x.name();
+    y.name();
+    z.name();
+}
+</code></pre>
+<a class="header" href="#answer-3-1" id="answer-3-1"><h1>Answer 3</h1></a>
+<p>No! But, why?</p>
+<pre><pre class="playpen"><code class="language-rust editable">struct Foo;
+struct Bar&lt;T&gt;(T);
+
+/*
+impl Bar&lt;Foo&gt; {
+    fn name(&amp;self) {
+        println!(&quot;Bar&lt;Foo&gt;&quot;);
+    }
+}
+
+impl&lt;T&gt; Bar&lt;T&gt; {
+    fn name(&amp;self) {
+        println!(&quot;Bar&lt;T&gt;&quot;);
+    }
+}
+*/
+
+fn main() {
+    let x = Bar(Foo);
+    let y = Bar(10);
+    let z = Bar(&quot;foo&quot;);
+/*
+    x.name();
+    y.name();
+    z.name();
+*/
+}
+</code></pre></pre>
+<a class="header" href="#question-4" id="question-4"><h1>Question 4</h1></a>
+<p>How is the code <em>monomorphized</em> at compile time?</p>
+<pre><pre class="playpen"><code class="language-rust">struct Foo;
+struct Bar&lt;T&gt;(T);
+
+impl Bar&lt;Foo&gt; {
+    fn name_foo(&amp;self) {
+        println!(&quot;Bar&lt;Foo&gt;&quot;);
+    }
+}
+
+impl&lt;T&gt; Bar&lt;T&gt; {
+    fn name_t(&amp;self) {
+        println!(&quot;Bar&lt;T&gt;&quot;);
+    }
+}
+
+fn main() {
+    let x = Bar(Foo);
+    let y = Bar(10);
+    let z = Bar(&quot;foo&quot;);
+
+    x.name_foo();
+    y.name_t();
+    z.name_t();
+}
+</code></pre></pre>
+<a class="header" href="#answer-4-1" id="answer-4-1"><h1>Answer 4</h1></a>
+<p>Let's enumerate all the concrete types created:</p>
+<pre><pre class="playpen"><code class="language-rust editable">struct Bar_Foo;
+struct Bar_i32;
+struct Bar_str;
+
+impl Bar_Foo {
+    fn name_foo(&amp;self) {
+        println!(&quot;Bar&lt;Foo&gt;&quot;);
+    }
+}
+
+impl Bar_i32 {
+    fn name_t(&amp;self) {
+        println!(&quot;Bar&lt;T&gt;&quot;);
+    }
+}
+
+impl Bar_str {
+    fn name_t(&amp;self) {
+        println!(&quot;Bar&lt;T&gt;&quot;);
+    }
+}
+
+fn main() {
+    let x = Bar_Foo;
+    let y = Bar_i32;
+    let z = Bar_str;
+
+    x.name_foo();
+    y.name_t();
+    z.name_t();
+}
+</code></pre></pre>
+<p>Do you notice anything here? Specifically, are there any tradeoffs associated
+with <em>monomorphization</em>?</p>
+<a class="header" href="#rust-workshop-part-viii" id="rust-workshop-part-viii"><h1>Rust Workshop: Part VIII</h1></a>
+<a class="header" href="#traits" id="traits"><h2>Traits</h2></a>
+<a class="header" href="#last-time-8" id="last-time-8"><h1>Last Time</h1></a>
+<ul>
+<li>Introduction</li>
+<li>What are generic data types?</li>
+<li>Syntax
+<ul>
+<li>Functions</li>
+<li>Structs</li>
+<li>Enums</li>
+<li>Methods</li>
+</ul>
+</li>
+<li>Performance of generics</li>
+<li>Workshop</li>
+</ul>
+<a class="header" href="#today-7" id="today-7"><h1>Today</h1></a>
+<ul>
+<li>Traits
+<ul>
+<li>Defining traits</li>
+<li>Implementing traits</li>
+<li>Default implementations</li>
+</ul>
+</li>
+<li>Trait bounds
+<ul>
+<li>Traits as parameters</li>
+<li>Returning types that implement traits</li>
+<li>Conditionally implementing methods</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="#quote-6" id="quote-6"><h1>Quote</h1></a>
+<blockquote>
+<p>Using (traits) for Inheritance was like putting car wheels on a boat because
+I am used to driving a vehicle with wheels.</p>
+</blockquote>
+<p>– Marco Alka on <a href="https://hashnode.com/post/how-to-become-a-rust-super-developer-cjpv1ee7e000buhs2aqrdw2ym">Hashnode</a></p>
+<a class="header" href="#introduction-2" id="introduction-2"><h1>Introduction</h1></a>
+<p><em>Traits</em> define shared behavior.</p>
+<p><em>Trait bounds</em> can be used to specify the behavior of generic type parameter.</p>
+<blockquote>
+<p>Note: Traits are similar to a feature often called <em>interfaces</em> in other
+languages, although with some differences.</p>
+</blockquote>
+<p>Traits in Rust are most similar <em>type classes</em> in Haskell:</p>
+<ul>
+<li>It is possible to add traits to arbitrary data types, including primitive
+types.</li>
+<li>Traits can define a default implementation for a method.</li>
+<li>A trait can be used for operator overloading. For example, we can 'redefine'
+<code>==</code>.</li>
+<li>Each overloadable operator in Rust has a corresponding trait in the standard
+library.</li>
+</ul>
+<a class="header" href="#defining-a-trait" id="defining-a-trait"><h1>Defining a Trait</h1></a>
+<p>Trait definitions are a way to group method signatures together to define a set
+of behaviors to accomplish some purpose.</p>
+<p>Let's define a trait with a single method.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub trait Summary {
+    fn summarize(&amp;self) -&gt; String;
+}
+#}</code></pre></pre>
+<p>We have not defined an implementation for the <code>summarize</code> method.</p>
+<p>The complier will be responsible for enforcing that types provide an
+implementation for <code>summarize</code> if the type has the <code>Summary</code> trait.</p>
+<p>A trait can have multiple methods in its body.</p>
+<a class="header" href="#implementing-traits" id="implementing-traits"><h1>Implementing Traits</h1></a>
+<p>Let's implement <code>Summary</code> on some types:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub trait Summary {
+    fn summarize(&amp;self) -&gt; String;
+}
+
+pub struct NewsArticle {
+    pub headline: String,
+    pub location: String,
+    pub author: String,
+    pub content: String,
+}
+
+impl Summary for NewsArticle {
+    fn summarize(&amp;self) -&gt; String {
+        format!(&quot;{}, by {} ({})&quot;, self.headline, self.author, self.location)
+    }
+}
+
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+
+impl Summary for Tweet {
+    fn summarize(&amp;self) -&gt; String {
+        format!(&quot;{}: {}&quot;, self.username, self.content)
+    }
+}
+#}</code></pre></pre>
+<p>Implementing a trait on a type is similar to implementing methods on a type.</p>
+<p>Instead of <code>impl Type</code>, we have <code>impl Trait for Type</code>.</p>
+<a class="header" href="#implementing-traits-1" id="implementing-traits-1"><h1>Implementing Traits</h1></a>
+<p>Let's now use the <code>summary</code> method from the <code>Summary</code> trait:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub trait Summary {
+    fn summarize(&amp;self) -&gt; String;
+}
+
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+
+impl Summary for Tweet {
+    fn summarize(&amp;self) -&gt; String {
+        format!(&quot;{}: {}&quot;, self.username, self.content)
+    }
+}
+
+let tweet = Tweet {
+    username: String::from(&quot;horse_ebooks&quot;),
+    content: String::from(&quot;of course, as you probably already know, people&quot;),
+    reply: false,
+    retweet: false,
+};
+
+println!(&quot;1 new tweet: {}&quot;, tweet.summarize())
+#}</code></pre></pre>
+<p>We've defined our trait and type locally here so we don't need to bring
+anything into scope.</p>
+<p>What happens when our trait or type is not local to our crate?</p>
+<a class="header" href="#implementing-traits-2" id="implementing-traits-2"><h1>Implementing Traits</h1></a>
+<p>If we wanted to implement an external trait on our local type, we would need to
+bring the trait into scope first.</p>
+<p>Alternatively, we could implement a local trait on an external type.</p>
+<p>But, we <em>cannot</em> implement external traits on external types.</p>
+<p>This restriction is part of a property of programs called <em>coherence</em>,
+specifically, the <em>orphan rule</em>, that ensures you cannot break other peoples
+code and vice-versa.</p>
+<p>Without this rule, two crates could implement the same trait for the same type,
+and Rust would not know which implementation to use.</p>
+<a class="header" href="#default-implementations" id="default-implementations"><h1>Default Implementations</h1></a>
+<p>It's useful for reuse to provide default behaviors for some methods of a trait
+instead of forcing types to reimplement them.</p>
+<p>We can always keep or override each method's default behavior.</p>
+<p>Let's give the <code>summarize</code> method a default implementation:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub trait Summary {
+    fn summarize(&amp;self) -&gt; String {
+        String::from(&quot;(Read more...)&quot;)
+    }
+}
+
+pub struct NewsArticle {
+    pub headline: String,
+    pub location: String,
+    pub author: String,
+    pub content: String,
+}
+
+impl Summary for NewsArticle {};
+
+let article = NewsArticle {
+    headline: String::from(&quot;Penguins win the Stanley Cup Championship!&quot;),
+    location: String::from(&quot;Pittsburgh, PA, USA&quot;),
+    author: String::from(&quot;Iceburgh&quot;),
+    content: String::from(&quot;The Pittsburgh Penguins once again are the best
+    hockey team in the NHL.&quot;),
+};
+
+println!(&quot;New article available! {}&quot;, article.summarize())
+#}</code></pre></pre>
+<p>We can omit an implementation for <code>summary</code> in <code>impl Summary for NewsArticle {};</code> and are still able to call the default <code>summary</code> function.</p>
+<a class="header" href="#default-implementations-1" id="default-implementations-1"><h1>Default Implementations</h1></a>
+<p>Default implementations can call other methods in the same trait, even if those
+methods do not have a default implementation.</p>
+<p>A trait can provide a large amount of functionality even if types that
+implement the trait only implement a fraction of the methods.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub trait Summary {
+    fn summarize_author(&amp;self) -&gt; String;
+
+    fn summarize(&amp;self) -&gt; String {
+        format!(&quot;(Read more from {}...)&quot;, self.summarize_author())
+    }
+}
+
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+
+impl Summary for Tweet {
+    fn summarize_author(&amp;self) -&gt; String {
+        format!(&quot;@{}&quot;, self.username)
+    }
+}
+
+let tweet = Tweet {
+    username: String::from(&quot;horse_ebooks&quot;),
+    content: String::from(&quot;of course, as you probably already know, people&quot;),
+    reply: false,
+    retweet: false,
+};
+
+println!(&quot;1 new tweet: {}&quot;, tweet.summarize());
+#}</code></pre></pre>
+<p>Here, we get the behavior of the <code>summarize</code> method for free because we
+implemented <code>summarize_author</code>.</p>
+<a class="header" href="#traits-as-parameters" id="traits-as-parameters"><h1>Traits as Parameters</h1></a>
+<p>Now that we know how to define traits and implement them on types, we can use
+traits as parameters.</p>
+<p>Let's look a short example:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub trait Summary {
+    fn summarize(&amp;self) -&gt; String;
+}
+
+pub struct Text {
+    pub content: String,
+}
+
+impl Summary for Text {
+    fn summarize(&amp;self) -&gt; String {
+        format!(&quot;{}&quot;, self.content)
+    }
+}
+
+pub fn notify(item: impl Summary) {
+    println!(&quot;Breaking news! {}&quot;, item.summarize());
+}
+
+let text = Text { content: String::from(&quot;This is a text...&quot;) };
+notify(text);
+#}</code></pre></pre>
+<p>We can call the <code>notify</code> function with any type that implements <code>Summary</code>.</p>
+<a class="header" href="#trait-bound-syntax" id="trait-bound-syntax"><h1>Trait Bound Syntax</h1></a>
+<p><code>impl Trait</code> is syntactic sugar for a longer syntax called a <em>trait bound</em>.</p>
+<pre><pre class="playpen"><code class="language-rust editable">pub trait Summary {
+    fn summarize(&amp;self) -&gt; String;
+}
+
+pub struct Text {
+    pub content: String,
+}
+
+impl Summary for Text {
+    fn summarize(&amp;self) -&gt; String {
+        format!(&quot;{}&quot;, self.content)
+    }
+}
+
+fn main() {
+    // pub fn notify(item: impl Summary) {
+    pub fn notify&lt;T: Summary&gt;(item: T) {
+        println!(&quot;Breaking news! {}&quot;, item.summarize());
+    }
+
+    // The following two lines express the same signature
+    // pub fn notify_all(item1: impl Summary, item2: impl Summary) {
+    pub fn notify_all&lt;T: Summary&gt;(item1: T, item2: T) {
+        println!(&quot;Breaking news! {} {}&quot;, item1.summarize(), item2.summarize());
+    }
+
+    let text = Text { content: String::from(&quot;This is a text...&quot;) };
+
+    notify(text);
+    // notify_all(text, text);
+}
+</code></pre></pre>
+<p>The <code>&lt;T: Trait&gt;</code> syntax specifies a trait bound, <code>Trait</code>, on <code>T</code>.</p>
+<a class="header" href="#trait-bounds-syntax" id="trait-bounds-syntax"><h1>Trait Bounds Syntax</h1></a>
+<p>If we need to impose multiple trait bounds on a type we use the <code>+</code> operator:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::fmt;
+
+pub trait Summary {
+    fn summarize(&amp;self) -&gt; String;
+}
+
+pub struct Text {
+    pub content: String,
+}
+
+impl Summary for Text {
+    fn summarize(&amp;self) -&gt; String {
+        format!(&quot;{}&quot;, self.content)
+    }
+}
+
+impl fmt::Display for Text {
+    fn fmt(&amp;self, f: &amp;mut fmt::Formatter) -&gt; fmt::Result {
+        write!(f, &quot;{}&quot;, self.content)
+    }
+}
+
+pub fn notify&lt;T: Summary + fmt::Display&gt;(item: T) {
+    println!(&quot;Breaking news! {} {}&quot;, item, item.summarize());
+}
+
+let text = Text { content: String::from(&quot;This is a text...&quot;) };
+notify(text);
+#}</code></pre></pre>
+<a class="header" href="#where-clauses" id="where-clauses"><h1>Where Clauses</h1></a>
+<p>When we have many trait bounds and many types, things can become unwieldy:</p>
+<pre><code class="language-rust ignore">fn some_function&lt;T: Display + Clone, U: Clone + Debug&gt;(t: T, u: U) -&gt; i32 {
+</code></pre>
+<p>We can use a <code>where</code> clause for complex situations:</p>
+<pre><code class="language-rust ignore">fn some_function&lt;T, U&gt;(t: T, u: U) -&gt; i32
+    where T: Display + Clone,
+          U: Clone + Debug
+{
+</code></pre>
+<p>The function signature is <em>less</em> cluttered and more clear!</p>
+<a class="header" href="#returning-types-that-implement-traits" id="returning-types-that-implement-traits"><h1>Returning Types that Implement Traits</h1></a>
+<p>We can use the <code>impl Trait</code> syntax in the return position as well:</p>
+<pre><code class="language-rust ignore">fn returns_summarizable() -&gt; impl Summary {
+    Tweet {
+        username: String::from(&quot;horse_ebooks&quot;),
+        content: String::from(&quot;of course, as you probably already know, people&quot;),
+        reply: false,
+        retweet: false,
+    }
+}
+</code></pre>
+<p><code>returns_summarizable</code> returns a type that implements <code>Summary</code>, but does not
+specify the concrete type.</p>
+<p>This syntax is especially useful in the context of iterators an closures since
+the <code>impl Trait</code> return syntax lets us specify functions that return a type
+that implements the <code>Iterator</code> trait without needing to write out a long type.</p>
+<a class="header" href="#returning-types-that-implement-traits-1" id="returning-types-that-implement-traits-1"><h1>Returning Types that Implement Traits</h1></a>
+<p>There's a catch! We can only use <code>impl Trait</code> if we're returning a single type.</p>
+<pre><code class="language-rust ignore"># pub trait Summary {
+#     fn summarize(&amp;self) -&gt; String;
+# }
+#
+# pub struct NewsArticle {
+#     pub headline: String,
+#     pub location: String,
+#     pub author: String,
+#     pub content: String,
+# }
+#
+# impl Summary for NewsArticle {
+#     fn summarize(&amp;self) -&gt; String {
+#         format!(&quot;{}, by {} ({})&quot;, self.headline, self.author, self.location)
+#     }
+# }
+#
+# pub struct Tweet {
+#     pub username: String,
+#     pub content: String,
+#     pub reply: bool,
+#     pub retweet: bool,
+# }
+#
+# impl Summary for Tweet {
+#     fn summarize(&amp;self) -&gt; String {
+#         format!(&quot;{}: {}&quot;, self.username, self.content)
+#     }
+# }
+fn returns_summarizable(switch: bool) -&gt; impl Summary {
+    if switch {
+        NewsArticle {
+            headline: String::from(&quot;Penguins win the Stanley Cup Championship!&quot;),
+            location: String::from(&quot;Pittsburgh, PA, USA&quot;),
+            author: String::from(&quot;Iceburgh&quot;),
+            content: String::from(&quot;The Pittsburgh Penguins once again are the best
+            hockey team in the NHL.&quot;),
+        }
+    } else {
+        Tweet {
+            username: String::from(&quot;horse_ebooks&quot;),
+            content: String::from(&quot;of course, as you probably already know, people&quot;),
+            reply: false,
+            retweet: false,
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-plaintext">error[E0308]: if and else have incompatible types
+  --&gt; src/main.rs:43:9
+   |
+34 |   /     if switch {
+35 |   |         NewsArticle {
+   |  _|_________-
+36 | | |             headline: String::from(&quot;Penguins win the Stanley Cup Championship!&quot;),
+37 | | |             location: String::from(&quot;Pittsburgh, PA, USA&quot;),
+38 | | |             author: String::from(&quot;Iceburgh&quot;),
+39 | | |             content: String::from(&quot;The Pittsburgh Penguins once again are the best
+40 | | |             hockey team in the NHL.&quot;),
+41 | | |         }
+   | |_|_________- expected because of this
+42 |   |     } else {
+43 | / |         Tweet {
+44 | | |             username: String::from(&quot;horse_ebooks&quot;),
+45 | | |             content: String::from(&quot;of course, as you probably already know, people&quot;),
+46 | | |             reply: false,
+47 | | |             retweet: false,
+48 | | |         }
+   | |_|_________^ expected struct `main::NewsArticle`, found struct `main::Tweet`
+49 |   |     }
+   |   |_____- if and else have incompatible types
+   |
+   = note: expected type `main::NewsArticle`
+              found type `main::Tweet`
+</code></pre>
+<p>This is a restriction on the way <code>impl Trait</code> is implemented.</p>
+<p>We need to discuss Trait Objects to write a function in this way.</p>
+<a class="header" href="#fixing-the-largest-function" id="fixing-the-largest-function"><h1>Fixing the Largest Function</h1></a>
+<p>Remember our <code>longest</code> function from last time had a compiler error:</p>
+<pre><code class="language-rust ignore">fn largest&lt;T&gt;(list: &amp;[T]) -&gt; T {
+    let mut largest = list[0];
+
+    for &amp;item in list.iter() {
+        if item &gt; largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+
+fn main() {
+    let number_list = vec![34, 50, 25, 100, 65];
+
+    let result = largest(&amp;number_list);
+    println!(&quot;The largest number is {}&quot;, result);
+
+    let char_list = vec!['y', 'm', 'a', 'q'];
+
+    let result = largest(&amp;char_list);
+    println!(&quot;The largest char is {}&quot;, result);
+}
+</code></pre>
+<pre><code class="language-plaintext">error[E0369]: binary operation `&gt;` cannot be applied to type `T`
+ --&gt; src/main.rs:5:12
+  |
+5 |         if item &gt; largest {
+  |            ^^^^^^^^^^^^^^
+  |
+  = note: `T` might need a bound for `std::cmp::PartialOrd`
+</code></pre>
+<p>We're missing a bound on <code>T</code>!</p>
+<a class="header" href="#fixing-the-largest-function-1" id="fixing-the-largest-function-1"><h1>Fixing the Largest Function</h1></a>
+<p>Let's add a trait bound on <code>T</code> for <code>std::cmp::PartialOrd</code>:</p>
+<pre><code class="language-rust ignore">fn largest&lt;T: PartialOrd&gt;(list: &amp;[T]) -&gt; T {
+    let mut largest = list[0];
+
+    for &amp;item in list.iter() {
+        if item &gt; largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+
+fn main() {
+    let number_list = vec![34, 50, 25, 100, 65];
+
+    let result = largest(&amp;number_list);
+    println!(&quot;The largest number is {}&quot;, result);
+
+    let char_list = vec!['y', 'm', 'a', 'q'];
+
+    let result = largest(&amp;char_list);
+    println!(&quot;The largest char is {}&quot;, result);
+}
+</code></pre>
+<p>Unfortunately, this does not compile!</p>
+<pre><code class="language-plaintext">error[E0508]: cannot move out of type `[T]`, a non-copy slice
+ --&gt; src/main.rs:2:23
+  |
+2 |     let mut largest = list[0];
+  |                       ^^^^^^^
+  |                       |
+  |                       cannot move out of here
+  |                       help: consider using a reference instead: `&amp;list[0]`
+
+error[E0507]: cannot move out of borrowed content
+ --&gt; src/main.rs:4:9
+  |
+4 |     for &amp;item in list.iter() {
+  |         ^----
+  |         ||
+  |         |hint: to prevent move, use `ref item` or `ref mut item`
+  |         cannot move out of borrowed content
+
+error: aborting due to 2 previous errors
+</code></pre>
+<p>Not all types, <code>T</code>, can be moved (stack-only data copy). We need be more specific
+about the types here.</p>
+<a class="header" href="#fixing-the-largest-function-2" id="fixing-the-largest-function-2"><h1>Fixing the Largest Function</h1></a>
+<p>We can only call the longest function with types that support <code>Copy</code> like <code>i32</code>
+and <code>char</code>.</p>
+<p>Let's add <code>Copy</code> as a trait bound:</p>
+<pre><pre class="playpen"><code class="language-rust editable">fn largest&lt;T: PartialOrd + Copy&gt;(list: &amp;[T]) -&gt; T {
+    let mut largest = list[0];
+
+    for &amp;item in list.iter() {
+        if item &gt; largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+
+fn main() {
+    let number_list = vec![34, 50, 25, 100, 65];
+
+    let result = largest(&amp;number_list);
+    println!(&quot;The largest number is {}&quot;, result);
+
+    let char_list = vec!['y', 'm', 'a', 'q'];
+
+    let result = largest(&amp;char_list);
+    println!(&quot;The largest char is {}&quot;, result);
+
+
+/*
+    let string_list = vec![
+        String::from(&quot;one&quot;),
+        String::from(&quot;two&quot;),
+        String::from(&quot;three&quot;),
+    ];
+
+    let result = largest(&amp;string_list);
+    println!(&quot;The largest String is {}&quot;, result);
+*/
+}
+</code></pre></pre>
+<p>What happens if our array consists of <code>String</code>s?</p>
+<p>Can we eliminate our <code>Copy</code> trait bound?</p>
+<a class="header" href="#using-trait-bounds-to-conditionally-implement-methods" id="using-trait-bounds-to-conditionally-implement-methods"><h1>Using Trait Bounds to Conditionally Implement Methods</h1></a>
+<p>We can use a trait bound in an <code>impl</code> block to conditionally implement methods
+for types that implement specific traits.</p>
+<p>For example, we can implement <code>cmp_display</code> for <code>Pair&lt;T&gt;</code> if <code>T</code> is <code>Display</code>
+and <code>PartialOrd</code>.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::fmt::Display;
+
+struct Pair&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+impl&lt;T&gt; Pair&lt;T&gt; {
+    fn new(x: T, y: T) -&gt; Self {
+        Self {
+            x,
+            y,
+        }
+    }
+}
+
+impl&lt;T: Display + PartialOrd&gt; Pair&lt;T&gt; {
+    fn cmp_display(&amp;self) {
+        if self.x &gt;= self.y {
+            println!(&quot;The largest member is x = {}&quot;, self.x);
+        } else {
+            println!(&quot;The largest member is y = {}&quot;, self.y);
+        }
+    }
+}
+#}</code></pre></pre>
+<a class="header" href="#using-trait-bounds-to-conditionally-implement-methods-1" id="using-trait-bounds-to-conditionally-implement-methods-1"><h1>Using Trait Bounds to Conditionally Implement Methods</h1></a>
+<p>We can also conditionally implement a trait for any type that implements
+another trait.</p>
+<p>In the standard library, <code>ToString</code> is implemented for any type that is
+<code>Display</code>.</p>
+<pre><code class="language-rust ignore">impl&lt;T: Display&gt; ToString for T {
+    // --snip--
+}
+</code></pre>
+<p>We can call <code>to_string</code> on integers because they implement <code>Display</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let s = 3.to_string();
+#}</code></pre></pre>
+<a class="header" href="#recap" id="recap"><h1>Recap</h1></a>
+<p><em>Traits</em> define shared behavior between types.</p>
+<ul>
+<li>We can implement a trait on a type as long as the trait or the type or both are
+defined in the local crate.</li>
+<li>We can provide default implementations of trait methods.</li>
+</ul>
+<p><em>Trait bounds</em> specify the behavior of generic type parameters.</p>
+<ul>
+<li><em>Where clauses</em> enable us to express complex trait bounds.</li>
+<li>We can write functions that return types that implement traits using <code>impl Trait</code> as long as only one concrete type is ever returned.</li>
+<li>We can conditionally implement methods for types that have generic type
+parameters by placing trait bounds on the generic type parameters.</li>
+</ul>
+<p>Trait and trait bounds enable us to write code using generics that has specific
+behavior.</p>
+<p>In a dynamically typed language, we would get errors at compile time if we call
+a method on a type that was not implemented.</p>
+<p>In Rust, we check at compile time <em>and</em> don't suffer any performance penalties.</p>
+<a class="header" href="#workshop-1" id="workshop-1"><h1>Workshop</h1></a>
+<p>Let dig deeper into some traits we've encountered before!</p>
+<a class="header" href="#question-1-1" id="question-1-1"><h1>Question 1</h1></a>
+<p>Given a new type, <code>City</code>, how do we <a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a> print it?</p>
+<pre><pre class="playpen"><code class="language-rust editable">struct City {
+    name: String,
+    state: String,
+}
+
+fn main() {
+/*
+    let x = City { name: String::from(&quot;Boston&quot;), state: String::from(&quot;MA&quot;) };
+    println!(&quot;{:?}&quot;, x);
+*/
+}
+</code></pre></pre>
+<a class="header" href="#answer-1-3" id="answer-1-3"><h1>Answer 1</h1></a>
+<p>Although uncommon, we can manually implement the <a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a> trait:</p>
+<pre><pre class="playpen"><code class="language-rust">use std::fmt;
+
+struct City {
+    name: String,
+    state: String,
+}
+
+impl fmt::Debug for City {
+    fn fmt(&amp;self, f: &amp;mut fmt::Formatter) -&gt; fmt::Result {
+        write!(f, &quot;City {{ name: {:?}, state: {:?} }}&quot;, self.name, self.state)
+    }
+}
+
+fn main() {
+    let c = City { name: String::from(&quot;Boston&quot;), state: String::from(&quot;MA&quot;) };
+    println!(&quot;{:?}&quot;, c);
+}
+</code></pre></pre>
+<p>Normally, we use an <em>annotation</em> to derive the <a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a> trait:</p>
+<pre><pre class="playpen"><code class="language-rust">#[derive(Debug)]
+struct City {
+    name: String,
+    state: String,
+}
+
+fn main() {
+    let c = City { name: String::from(&quot;Boston&quot;), state: String::from(&quot;MA&quot;) };
+    println!(&quot;{:?}&quot;, c);
+}
+</code></pre></pre>
+<a class="header" href="#question-2-1" id="question-2-1"><h1>Question 2</h1></a>
+<p>Given a new type, how do we <a href="https://doc.rust-lang.org/std/fmt/trait.Display.html"><code>Display</code></a> it?</p>
+<pre><pre class="playpen"><code class="language-rust editable">struct City {
+    name: String,
+    state: String,
+}
+
+fn main() {
+/*
+    let x = City { name: String::from(&quot;Boston&quot;), state: String::from(&quot;MA&quot;) };
+    println!(&quot;{}&quot;, x);
+*/
+}
+</code></pre></pre>
+<a class="header" href="#answer-2-3" id="answer-2-3"><h1>Answer 2</h1></a>
+<p>We manually implement the <a href="https://doc.rust-lang.org/std/fmt/trait.Display.html"><code>Display</code></a> trait for types since it is used
+for user-facing output:</p>
+<pre><pre class="playpen"><code class="language-rust">use std::fmt;
+
+struct City {
+    name: String,
+    state: String,
+}
+
+impl fmt::Display for City {
+    fn fmt(&amp;self, f: &amp;mut fmt::Formatter) -&gt; fmt::Result {
+        write!(f, &quot;{}, {}&quot;, self.name, self.state)
+    }
+}
+
+fn main() {
+    let x = City { name: String::from(&quot;Boston&quot;), state: String::from(&quot;MA&quot;) };
+    println!(&quot;{}&quot;, x);
+}
+</code></pre></pre>
+<a class="header" href="#question-3-1" id="question-3-1"><h1>Question 3</h1></a>
+<p>How do we <a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a> and <a href="https://doc.rust-lang.org/std/fmt/trait.Display.html"><code>Display</code></a> the <code>City</code> type now?</p>
+<pre><pre class="playpen"><code class="language-rust editable">enum Country {
+    Canada,
+    Mexico,
+    UnitedStates,
+}
+
+struct City {
+    name: String,
+    state: String,
+    country: Country,
+}
+
+fn main() {
+/*
+    let city = City {
+        name: String::from(&quot;Boston&quot;),
+        state: String::from(&quot;MA&quot;),
+        country: Country::UnitedStates,
+    };
+
+    println!(&quot;Debug:   {:?}&quot;, city);
+    println!(&quot;Display: {}&quot;, city);
+*/
+}
+</code></pre></pre>
+<a class="header" href="#answer-3-2" id="answer-3-2"><h1>Answer 3</h1></a>
+<p><a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a> can be conditionally derived if subtypes are <a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a>.</p>
+<p>When manually implemented <a href="https://doc.rust-lang.org/std/fmt/trait.Display.html"><code>Display</code></a>, we have options.</p>
+<pre><pre class="playpen"><code class="language-rust editable">use std::fmt;
+
+#[derive(Debug)]
+enum Country {
+    Canada,
+    Mexico,
+    UnitedStates,
+}
+
+#[derive(Debug)]
+struct City {
+    name: String,
+    state: String,
+    country: Country,
+}
+
+impl fmt::Display for City {
+    fn fmt(&amp;self, f: &amp;mut fmt::Formatter) -&gt; fmt::Result {
+        write!(f, &quot;{}, {}, {:?}&quot;, self.name, self.state, self.country)
+    }
+}
+
+fn main() {
+    let city = City {
+        name: String::from(&quot;Boston&quot;),
+        state: String::from(&quot;MA&quot;),
+        country: Country::UnitedStates,
+    };
+
+    println!(&quot;Debug:   {:?}&quot;, city);
+    println!(&quot;Display: {}&quot;, city);
+}
+</code></pre></pre>
+<a class="header" href="#rust-workshop-part-ix" id="rust-workshop-part-ix"><h1>Rust Workshop: Part IX</h1></a>
+<a class="header" href="#lifetimes" id="lifetimes"><h2>Lifetimes</h2></a>
+<a class="header" href="#last-time-9" id="last-time-9"><h1>Last Time</h1></a>
+<a class="header" href="#quote-7" id="quote-7"><h1>Quote</h1></a>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
